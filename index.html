@@ -1,294 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WALZSHOP — Ultra Glossy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WALZSHOP — Bright Glossy Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <header class="site-header">
-      <div class="brand">
-        <div class="logo">
-          <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP Logo">
-        </div>
-        <div class="brand-text">
-          <h1>WALZSHOP</h1>
-          <p class="subtitle">Official • Top up • Panel • Services</p>
-        </div>
-      </div>
+
+  <div class="container">
+    <header>
+      <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP Logo" class="logo">
+      <h1>WALZSHOP</h1>
+      <p>Official • Top up • Panel • Website Services</p>
     </header>
 
-    <main class="cards">
-      <!-- QRIS -->
-      <article class="card" id="card-qris">
-        <button class="card-head" data-target="qris">
-          <span class="svg-icon" aria-hidden>
-            <!-- QR SVG (feather-like) -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-            </svg>
-          </span>
-          <span class="card-title">PAYMENT QRIS</span>
-          <span class="arrow" aria-hidden>
-            <!-- Down chevron -->
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </button>
+    <section class="menu">
 
-        <div class="card-body" id="qris">
-          <div class="qris-wrap">
-            <img id="qrisImg" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP">
-            <div class="btns">
-              <button class="btn primary" id="btnOpenQ">Perbesar QRIS</button>
-              <button class="btn ghost" id="btnCopyQ">Salin Link QRIS</button>
-            </div>
-          </div>
+      <!-- QRIS -->
+      <div class="menu-item" onclick="toggleCard('qrisCard')">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        </span>
+        <span>PAYMENT QRIS</span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div id="qrisCard" class="card">
+        <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS" class="qris" id="qrisImg">
+        <div class="btn-group">
+          <button class="btn primary" id="openQris">Perbesar QRIS</button>
+          <button class="btn ghost" id="copyQris">Salin Link QRIS</button>
         </div>
-      </article>
+      </div>
 
       <!-- DANA -->
-      <article class="card" id="card-dana">
-        <button class="card-head" data-target="dana">
-          <span class="svg-icon" aria-hidden>
-            <!-- Wallet SVG -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="7" width="18" height="12" rx="2"></rect>
-              <path d="M16 3v4"></path>
-            </svg>
-          </span>
-          <span class="card-title">PAYMENT DANA</span>
-          <span class="arrow" aria-hidden>
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </button>
-
-        <div class="card-body" id="dana">
-          <div class="info">
-            <div class="row"><div class="label">Nama</div><div class="value">WALZEXPLOIT</div></div>
-            <div class="row"><div class="label">Nomor</div><div class="value" id="danaNum">082298902274</div></div>
-            <div class="center"><button class="btn primary" id="btnCopyDana">Copy Nomor</button></div>
-          </div>
-        </div>
-      </article>
+      <div class="menu-item" onclick="toggleCard('danaCard')">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M16 3v4"/></svg>
+        </span>
+        <span>PAYMENT DANA</span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div id="danaCard" class="card">
+        <p><b>Nama:</b> WALZEXPLOIT</p>
+        <p><b>Nomor:</b> <span id="danaNum">082298902274</span></p>
+        <button class="btn primary" id="copyDana">Copy Nomor</button>
+      </div>
 
       <!-- GOPAY -->
-      <article class="card" id="card-gopay">
-        <button class="card-head" data-target="gopay">
-          <span class="svg-icon" aria-hidden>
-            <!-- Pay icon -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-              <path d="M16 3v4"></path>
-            </svg>
-          </span>
-          <span class="card-title">PAYMENT GOPAY</span>
-          <span class="arrow" aria-hidden>
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </button>
-
-        <div class="card-body" id="gopay">
-          <div class="info">
-            <div class="row"><div class="label">Nama</div><div class="value">TI** SUT***@</div></div>
-            <div class="row"><div class="label">Nomor</div><div class="value" id="gopayNum">082298902274</div></div>
-            <div class="center"><button class="btn primary" id="btnCopyGopay">Copy Nomor</button></div>
-          </div>
-        </div>
-      </article>
+      <div class="menu-item" onclick="toggleCard('gopayCard')">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 3v4"/></svg>
+        </span>
+        <span>PAYMENT GOPAY</span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div id="gopayCard" class="card">
+        <p><b>Nama:</b> TI** SUT***@</p>
+        <p><b>Nomor:</b> <span id="gopayNum">082298902274</span></p>
+        <button class="btn primary" id="copyGopay">Copy Nomor</button>
+      </div>
 
       <!-- Layanan -->
-      <article class="card" id="card-layanan">
-        <button class="card-head" data-target="layanan">
-          <span class="svg-icon" aria-hidden>
-            <!-- Box icon -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-            </svg>
-          </span>
-          <span class="card-title">LAYANAN WALZ</span>
-          <span class="arrow" aria-hidden>
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </button>
-
-        <div class="card-body" id="layanan">
-          <ul class="list">
-            <li>Logo bebas request</li>
-            <li>Panel run bot 1GB - UNLI</li>
-            <li>Reseller panel & admin panel</li>
-            <li>Jasa pembuatan website</li>
-          </ul>
-        </div>
-      </article>
+      <div class="menu-item" onclick="toggleCard('layananCard')">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </span>
+        <span>LAYANAN WALZ</span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div id="layananCard" class="card">
+        <ul>
+          <li>Logo bebas request</li>
+          <li>Panel run bot 1GB - UNLI</li>
+          <li>Reseller panel & admin panel</li>
+          <li>Jasa pembuatan website</li>
+        </ul>
+      </div>
 
       <!-- Produk Panel -->
-      <article class="card" id="card-produk">
-        <button class="card-head" data-target="produk">
-          <span class="svg-icon" aria-hidden>
-            <!-- Server icon -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="8" rx="2"></rect>
-              <rect x="3" y="13" width="18" height="8" rx="2"></rect>
-            </svg>
-          </span>
-          <span class="card-title">PRODUK PANEL</span>
-          <span class="arrow" aria-hidden>
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </button>
-
-        <div class="card-body" id="produk">
-          <ul class="list">
-            <li>RAM 1GB : Rp1.000</li>
-            <li>RAM 2GB : Rp2.000</li>
-            <li>RAM 3GB : Rp3.000</li>
-            <li>RAM 4GB : Rp4.000</li>
-            <li>RAM 5GB : Rp5.000</li>
-            <li>RAM 6GB : Rp6.000</li>
-            <li>RAM 7GB : Rp7.000</li>
-            <li>RAM 8GB : Rp8.000</li>
-            <li>RAM 9GB : Rp9.000</li>
-            <li>RAM UNLI : Rp10.000</li>
-          </ul>
-        </div>
-      </article>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-brand">WALZSHOP</div>
-        <div class="footer-note">Designed & Developed by <strong>WALZSHOP</strong> © 2025</div>
+      <div class="menu-item" onclick="toggleCard('produkCard')">
+        <span class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/></svg>
+        </span>
+        <span>PRODUK PANEL</span>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
+      <div id="produkCard" class="card">
+        <ul>
+          <li>RAM 1GB : Rp1.000</li>
+          <li>RAM 2GB : Rp2.000</li>
+          <li>RAM 3GB : Rp3.000</li>
+          <li>RAM 4GB : Rp4.000</li>
+          <li>RAM 5GB : Rp5.000</li>
+          <li>RAM 6GB : Rp6.000</li>
+          <li>RAM 7GB : Rp7.000</li>
+          <li>RAM 8GB : Rp8.000</li>
+          <li>RAM 9GB : Rp9.000</li>
+          <li>RAM UNLI : Rp10.000</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>Designed & Developed by <b>WALZSHOP</b> © 2025</p>
     </footer>
   </div>
 
-  <!-- popup -->
-  <div id="toast" class="toast" role="status" aria-live="polite">✔︎ Tersalin</div>
+  <div id="toast">✔️ Tersalin</div>
 
-  <!-- modal enlarge QRIS -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-card">
-      <img id="modalImg" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS besar">
-      <div class="modal-actions">
-        <button class="btn ghost" id="closeModal">Tutup</button>
-      </div>
+  <div id="modal" class="modal">
+    <div class="modal-box">
+      <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS Zoom">
+      <button class="btn primary" id="closeModal">Tutup</button>
     </div>
   </div>
 
-  <!-- floating WA -->
-  <a class="wa" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank" rel="noopener" aria-label="Chat via WhatsApp">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"></path></svg>
-    <span>WA Admin</span>
-  </a>
+  <a class="wa" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank">💬 WA Admin</a>
 
   <script>
-    // ACCORDION behaviour (single open) + arrow rotate
-    document.querySelectorAll('.card-head').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('data-target');
-        const body = document.getElementById(targetId);
-        const card = btn.closest('.card');
-        const open = card.classList.contains('open');
-
-        // close all others
-        document.querySelectorAll('.card.open').forEach(c => { c.classList.remove('open'); });
-        document.querySelectorAll('.card .chev').forEach(svg => { svg.style.transform = ''; });
-
-        if (!open) {
-          card.classList.add('open');
-          // rotate arrow
-          const chev = btn.querySelector('.chev');
-          if (chev) chev.style.transform = 'rotate(180deg)';
-        }
+    // Accordion
+    function toggleCard(id){
+      document.querySelectorAll('.card').forEach(c => {
+        if(c.id === id) c.classList.toggle('active');
+        else c.classList.remove('active');
       });
+    }
 
-      // keyboard support
-      btn.addEventListener('keyup', (e) => { if (e.key === 'Enter' || e.key === ' ') btn.click(); });
-    });
-
-    // TOAST helper
+    // Toast copy popup
     const toast = document.getElementById('toast');
-    let toTimer;
-    function showToast(msg) {
-      clearTimeout(toTimer);
-      toast.textContent = '✔︎ ' + msg;
+    function showToast(msg){
+      toast.textContent = msg;
       toast.classList.add('show');
-      toTimer = setTimeout(()=> toast.classList.remove('show'), 1600);
+      setTimeout(()=> toast.classList.remove('show'),1600);
     }
 
-    // SAFE COPY (clipboard + fallback)
-    async function safeCopy(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch (err) {
-        try {
-          const ta = document.createElement('textarea');
-          ta.value = text;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          return true;
-        } catch (e) { return false; }
-      }
+    async function copyText(t){
+      try{await navigator.clipboard.writeText(t);return true;}
+      catch{let a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);return true;}
     }
 
-    // COPY handlers
-    document.getElementById('btnCopyDana').addEventListener('click', async () => {
-      const v = document.getElementById('danaNum').textContent.trim();
-      if (await safeCopy(v)) showToast('Nomor DANA tersalin');
-      else alert('Gagal menyalin');
-    });
-    document.getElementById('btnCopyGopay').addEventListener('click', async () => {
-      const v = document.getElementById('gopayNum').textContent.trim();
-      if (await safeCopy(v)) showToast('Nomor GOPAY tersalin');
-      else alert('Gagal menyalin');
-    });
+    document.getElementById('copyDana').onclick=async()=>{let t=document.getElementById('danaNum').textContent;if(await copyText(t))showToast('Nomor DANA tersalin!');}
+    document.getElementById('copyGopay').onclick=async()=>{let t=document.getElementById('gopayNum').textContent;if(await copyText(t))showToast('Nomor GOPAY tersalin!');}
+    document.getElementById('copyQris').onclick=async()=>{let t=document.getElementById('qrisImg').src;if(await copyText(t))showToast('Link QRIS tersalin!');}
 
-    // COPY QRIS (uses actual image src)
-    document.getElementById('btnCopyQ').addEventListener('click', async () => {
-      const src = document.getElementById('qrisImg').src;
-      if (await safeCopy(src)) showToast('Link QRIS tersalin');
-      else alert('Gagal menyalin link QRIS');
-    });
-
-    // MODAL enlarge
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
-    document.getElementById('btnOpenQ').addEventListener('click', () => {
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    });
-    document.getElementById('closeModal').addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    function closeModal() {
-      modal.classList.remove('show');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = 'auto';
-    }
-
-    // ensure initial: open first card
-    (function init() {
-      const first = document.querySelector('.card');
-      if (first) first.classList.add('open');
-    })();
+    // Modal
+    const modal=document.getElementById('modal');
+    document.getElementById('openQris').onclick=()=>modal.classList.add('show');
+    document.getElementById('closeModal').onclick=()=>modal.classList.remove('show');
+    modal.onclick=e=>{if(e.target===modal)modal.classList.remove('show');}
   </script>
 </body>
 </html>

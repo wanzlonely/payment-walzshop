@@ -1,8 +1,9 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: #0e1116;
+  background: radial-gradient(circle at top left, #111418, #0b0e12 60%);
   color: #f4f7fa;
+  overflow-x: hidden;
 }
 
 .container {
@@ -13,6 +14,7 @@ body {
 
 header {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .logo {
@@ -24,41 +26,63 @@ header {
 }
 
 h1 {
-  font-size: 28px;
-  margin: 12px 0 25px;
-  color: #00adb5;
+  font-size: 30px;
+  margin: 10px 0 4px;
   font-weight: 700;
+  background: linear-gradient(90deg, #00fff7, #00adb5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: #aeb4bd;
+  font-size: 14px;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .menu-item {
-  background: #181c22;
+  background: linear-gradient(145deg, #15191e, #101318);
+  box-shadow: inset 2px 2px 6px rgba(255, 255, 255, 0.04),
+              4px 4px 12px rgba(0, 0, 0, 0.5);
   padding: 14px;
   border-radius: 14px;
-  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #d5e7ea;
+  transition: 0.3s ease;
 }
 
 .menu-item:hover {
-  background: #222831;
+  background: linear-gradient(145deg, #1a1e24, #13171c);
+}
+
+.arrow {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
 }
 
 .card {
   display: none;
-  background: #1a1e25;
-  padding: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 14px;
+  padding: 16px;
   margin-top: 6px;
   animation: fadeIn 0.3s ease;
+  box-shadow: inset 1px 1px 6px rgba(255, 255, 255, 0.03),
+              0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card.active {
@@ -66,42 +90,47 @@ h1 {
 }
 
 .qris {
-  display: block;
-  width: 240px;
+  width: 230px;
   max-width: 100%;
-  margin: 0 auto 12px;
+  margin: 10px auto;
+  display: block;
   border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.12);
 }
 
 ul {
   list-style: none;
+  margin: 8px 0;
   padding: 0;
-  margin: 10px 0;
   line-height: 1.6;
 }
 
 .btn {
-  width: 100%;
-  margin-top: 8px;
-  background: #00adb5;
-  color: white;
+  background: linear-gradient(90deg, #00adb5, #00fff7);
   border: none;
-  border-radius: 10px;
+  color: #fff;
   padding: 10px;
+  border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .btn:hover {
-  background: #02b9c2;
+  filter: brightness(1.15);
 }
 
 .btn.ghost {
   background: transparent;
-  border: 1px solid #00adb5;
-  color: #00adb5;
+  border: 1px solid #00fff7;
+  color: #00fff7;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 footer {
@@ -118,8 +147,8 @@ footer {
   bottom: 90px;
   left: 50%;
   transform: translateX(-50%) scale(0.9);
-  background: #00adb5;
-  color: white;
+  background: linear-gradient(90deg, #00adb5, #00fff7);
+  color: #001314;
   padding: 10px 18px;
   border-radius: 10px;
   font-weight: 600;
@@ -147,13 +176,13 @@ footer {
 }
 
 .modal-box {
-  background: #1a1e25;
+  background: #15191f;
   border-radius: 16px;
   padding: 18px;
   text-align: center;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .modal-box img {

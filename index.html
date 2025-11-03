@@ -3,202 +3,246 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WALZSHOP — Dark Solid Elegant</title>
+  <title>WALZSHOP — Dark Elite</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
-    <header class="hero">
-      <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP Logo" class="hero-logo">
+  <div class="shell">
+    <header class="hero" role="banner">
+      <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP" class="hero-logo">
       <h1 class="brand">WALZSHOP</h1>
-      <div class="brand-line"></div>
+      <div class="brand-line" aria-hidden="true"></div>
     </header>
 
-    <main class="content" id="content">
-      <!-- QRIS -->
-      <article class="card">
-        <button class="card-head" data-target="panel-qris">
-          <span class="left">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7" rx="1"/>
-              <rect x="14" y="3" width="7" height="7" rx="1"/>
-              <rect x="3" y="14" width="7" height="7" rx="1"/>
-            </svg>
-          </span>
-          <span class="title">PAYMENT QRIS</span>
-          <span class="chev">
-            <svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"/>
-            </svg>
-          </span>
-        </button>
-        <div id="panel-qris" class="card-body">
-          <div class="divider"></div>
-          <div class="qris-box">
-            <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP" class="qris-img" id="qrisImg">
-          </div>
-          <div class="body-actions">
-            <button class="pill btn-white" id="openQ">Perbesar QRIS</button>
-            <button class="pill btn-ghost" id="copyQ">Copy Link QRIS</button>
-          </div>
-        </div>
-      </article>
+    <main class="main" role="main">
+      <section class="accordion">
 
-      <!-- DANA -->
-      <article class="card">
-        <button class="card-head" data-target="panel-dana">
-          <span class="left">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M16 3v4"/></svg>
-          </span>
-          <span class="title">PAYMENT DANA</span>
-          <span class="chev"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div id="panel-dana" class="card-body">
-          <div class="divider"></div>
-          <div class="info-card">
-            <div class="info-row"><div class="label">Nama :</div><div class="value">WALZEXPLOIT</div></div>
-            <div class="info-row"><div class="label">Nomor :</div><div class="value" id="danaNum">082298902274</div></div>
-            <div class="body-actions single">
-              <button class="pill btn-white" id="copyDana">Copy Nomor</button>
+        <div class="panel">
+          <button class="panel-head" data-target="p-qris" aria-expanded="false" type="button">
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+            </span>
+            <span class="head-title">PAYMENT QRIS</span>
+            <span class="arrow"><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div id="p-qris" class="panel-body" aria-hidden="true">
+            <div class="divider"></div>
+            <div class="qris-wrap">
+              <img id="qrisImg" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP" class="qris-img">
+            </div>
+            <div class="actions">
+              <button class="btn btn-solid" id="openQ">Perbesar QRIS</button>
+              <button class="btn btn-ghost" id="copyQ">Copy Link QRIS</button>
             </div>
           </div>
         </div>
-      </article>
 
-      <!-- GOPAY -->
-      <article class="card">
-        <button class="card-head" data-target="panel-gopay">
-          <span class="left">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 3v4"/></svg>
-          </span>
-          <span class="title">PAYMENT GOPAY</span>
-          <span class="chev"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div id="panel-gopay" class="card-body">
-          <div class="divider"></div>
-          <div class="info-card">
-            <div class="info-row"><div class="label">Nama :</div><div class="value">TI** SUT***@</div></div>
-            <div class="info-row"><div class="label">Nomor :</div><div class="value" id="gopayNum">082298902274</div></div>
-            <div class="body-actions single">
-              <button class="pill btn-white" id="copyGopay">Copy Nomor</button>
+        <div class="panel">
+          <button class="panel-head" data-target="p-dana" aria-expanded="false" type="button">
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M16 3v4"/></svg>
+            </span>
+            <span class="head-title">PAYMENT DANA</span>
+            <span class="arrow"><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div id="p-dana" class="panel-body" aria-hidden="true">
+            <div class="divider"></div>
+            <div class="info-card">
+              <div class="row"><div class="label">Nama :</div><div class="val">WALZEXPLOIT</div></div>
+              <div class="row"><div class="label">Nomor :</div><div class="val" id="danaNum">082298902274</div></div>
+              <div class="actions single">
+                <button class="btn btn-solid" id="copyDana">Copy Nomor</button>
+              </div>
             </div>
           </div>
         </div>
-      </article>
 
-      <!-- LAYANAN -->
-      <article class="card">
-        <button class="card-head" data-target="panel-layanan">
-          <span class="left">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          </span>
-          <span class="title">LAYANAN WALZ</span>
-          <span class="chev"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div id="panel-layanan" class="card-body">
-          <div class="divider"></div>
-          <ul class="service-list">
-            <li>Logo bebas request</li>
-            <li>Panel run bot 1GB - UNLI</li>
-            <li>Reseller panel & admin panel</li>
-            <li>Jasa pembuatan website</li>
-          </ul>
+        <div class="panel">
+          <button class="panel-head" data-target="p-gopay" aria-expanded="false" type="button">
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 3v4"/></svg>
+            </span>
+            <span class="head-title">PAYMENT GOPAY</span>
+            <span class="arrow"><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div id="p-gopay" class="panel-body" aria-hidden="true">
+            <div class="divider"></div>
+            <div class="info-card">
+              <div class="row"><div class="label">Nama :</div><div class="val">TI** SUT***@</div></div>
+              <div class="row"><div class="label">Nomor :</div><div class="val" id="gopayNum">082298902274</div></div>
+              <div class="actions single">
+                <button class="btn btn-solid" id="copyGopay">Copy Nomor</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </article>
 
-      <!-- PRODUK -->
-      <article class="card">
-        <button class="card-head" data-target="panel-produk">
-          <span class="left">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/></svg>
-          </span>
-          <span class="title">PRODUK PANEL</span>
-          <span class="chev"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div id="panel-produk" class="card-body">
-          <div class="divider"></div>
-          <ul>
-            <li>RAM 1GB : Rp1.000</li>
-            <li>RAM 2GB : Rp2.000</li>
-            <li>RAM 3GB : Rp3.000</li>
-            <li>RAM 4GB : Rp4.000</li>
-            <li>RAM 5GB : Rp5.000</li>
-            <li>RAM 6GB : Rp6.000</li>
-            <li>RAM 7GB : Rp7.000</li>
-            <li>RAM 8GB : Rp8.000</li>
-            <li>RAM 9GB : Rp9.000</li>
-            <li>RAM UNLI : Rp10.000</li>
-          </ul>
+        <div class="panel">
+          <button class="panel-head" data-target="p-layanan" aria-expanded="false" type="button">
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </span>
+            <span class="head-title">LAYANAN WALZ</span>
+            <span class="arrow"><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div id="p-layanan" class="panel-body" aria-hidden="true">
+            <div class="divider"></div>
+            <ul class="service-list">
+              <li>Logo bebas request</li>
+              <li>Panel run bot 1GB - UNLI</li>
+              <li>Reseller panel & admin panel</li>
+              <li>Jasa pembuatan website</li>
+            </ul>
+          </div>
         </div>
-      </article>
+
+        <div class="panel">
+          <button class="panel-head" data-target="p-produk" aria-expanded="false" type="button">
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/></svg>
+            </span>
+            <span class="head-title">PRODUK PANEL</span>
+            <span class="arrow"><svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div id="p-produk" class="panel-body" aria-hidden="true">
+            <div class="divider"></div>
+            <div class="produk">
+              <div class="produk-title">PANEL PTERODACTYL</div>
+              <ul>
+                <li>RAM 1GB : Rp1.000</li>
+                <li>RAM 2GB : Rp2.000</li>
+                <li>RAM 3GB : Rp3.000</li>
+                <li>RAM 4GB : Rp4.000</li>
+                <li>RAM 5GB : Rp5.000</li>
+                <li>RAM 6GB : Rp6.000</li>
+                <li>RAM 7GB : Rp7.000</li>
+                <li>RAM 8GB : Rp8.000</li>
+                <li>RAM 9GB : Rp9.000</li>
+                <li>RAM UNLI : Rp10.000</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="f-brand">WALZSHOP</div>
-        <div class="f-note">Designed & Developed by WALZSHOP © 2025</div>
-      </div>
-      <div class="footer-social">
-        <a href="https://t.me/walzdevnew" target="_blank" class="tg-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00a2ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/>
-          </svg>
-          <span>@walzdevnew</span>
-        </a>
+    <footer class="footer">
+      <div class="foot-inner">
+        <div class="brand-foot">WALZSHOP</div>
+        <div class="note">Designed &amp; Developed by WALZSHOP © 2025</div>
       </div>
     </footer>
   </div>
 
-  <div id="toast" class="toast"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <div id="modal" class="modal">
-    <div class="modal-inner">
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card">
       <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS besar">
       <button class="btn close" id="closeModal">Tutup</button>
     </div>
   </div>
 
-  <a class="wa-btn" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%20saya%20ingin%20order" target="_blank">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"/></svg>
-    <span>WA Admin</span>
-  </a>
+  <div class="float-actions">
+    <a class="float-btn" id="waBtn" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"/></svg>
+    </a>
+    <a class="float-btn" id="tgBtn" href="https://t.me/walzdevnew" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+    </a>
+  </div>
 
   <script>
-    const toast = document.getElementById("toast");
-    let toastTimer;
-    function showToast(msg) {
-      clearTimeout(toastTimer);
-      toast.textContent = '✔︎ ' + msg;
-      toast.classList.add("show");
-      toastTimer = setTimeout(() => toast.classList.remove("show"), 1600);
-    }
-    async function copyText(text, msg) {
-      try {
-        await navigator.clipboard.writeText(text);
-        showToast(msg);
-      } catch {
-        showToast("Gagal menyalin");
+    (function(){
+      const heads = document.querySelectorAll('.panel-head');
+      heads.forEach(h => {
+        h.addEventListener('click', () => {
+          const id = h.dataset.target;
+          const body = document.getElementById(id);
+          const open = body.classList.contains('open');
+          document.querySelectorAll('.panel-body.open').forEach(b => {
+            b.classList.remove('open');
+            b.setAttribute('aria-hidden','true');
+            const prev = b.previousElementSibling;
+            if(prev) prev.setAttribute('aria-expanded','false');
+            const chev = prev && prev.querySelector('.chev');
+            if(chev) chev.style.transform = '';
+          });
+          if(!open){
+            body.classList.add('open');
+            body.setAttribute('aria-hidden','false');
+            h.setAttribute('aria-expanded','true');
+            const chev = h.querySelector('.chev');
+            if(chev) chev.style.transform = 'rotate(180deg)';
+            if(window.innerWidth < 560) setTimeout(()=> body.scrollIntoView({behavior:'smooth', block:'center'}), 240);
+          }
+        });
+        h.addEventListener('keyup',(e)=> { if(e.key === 'Enter' || e.key === ' ') h.click(); });
+      });
+
+      const toast = document.getElementById('toast');
+      let timer;
+      function showToast(text){
+        clearTimeout(timer);
+        toast.textContent = '✔︎ ' + text;
+        toast.classList.add('show');
+        timer = setTimeout(()=> toast.classList.remove('show'), 1500);
       }
-    }
 
-    document.getElementById("copyDana").onclick = () => copyText("082298902274", "Nomor DANA tersalin");
-    document.getElementById("copyGopay").onclick = () => copyText("082298902274", "Nomor GOPAY tersalin");
-    document.getElementById("copyQ").onclick = () => copyText("https://files.catbox.moe/pa0iwo.png", "Link QRIS tersalin");
+      async function safeCopy(text){
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch(e){
+          try {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            return true;
+          } catch(err){
+            return false;
+          }
+        }
+      }
 
-    const modal = document.getElementById("modal");
-    document.getElementById("openQ").onclick = () => modal.classList.add("show");
-    document.getElementById("closeModal").onclick = () => modal.classList.remove("show");
-    modal.onclick = e => { if (e.target === modal) modal.classList.remove("show"); };
+      document.getElementById('copyDana')?.addEventListener('click', async () => {
+        const v = document.getElementById('danaNum').textContent.trim();
+        if(await safeCopy(v)) showToast('Nomor DANA tersalin');
+        else showToast('Gagal menyalin');
+      });
 
-    document.querySelectorAll(".card-head").forEach(h => {
-      h.onclick = () => {
-        const target = document.getElementById(h.dataset.target);
-        const open = target.classList.contains("open");
-        document.querySelectorAll(".card-body.open").forEach(c => c.classList.remove("open"));
-        if (!open) target.classList.add("open");
-      };
-    });
+      document.getElementById('copyGopay')?.addEventListener('click', async () => {
+        const v = document.getElementById('gopayNum').textContent.trim();
+        if(await safeCopy(v)) showToast('Nomor GOPAY tersalin');
+        else showToast('Gagal menyalin');
+      });
+
+      document.getElementById('copyQ')?.addEventListener('click', async () => {
+        const src = document.getElementById('qrisImg').src;
+        if(await safeCopy(src)) showToast('Link QRIS tersalin');
+        else showToast('Gagal menyalin');
+      });
+
+      const modal = document.getElementById('modal');
+      document.getElementById('openQ')?.addEventListener('click', () => {
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      });
+      document.getElementById('closeModal')?.addEventListener('click', () => {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = 'auto';
+      });
+      modal.addEventListener('click', (e)=> { if(e.target === modal){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='auto'; } });
+
+      window.addEventListener('load', ()=> { document.querySelector('.shell').style.opacity = '1'; const first = document.querySelector('.panel-body'); if(first){ first.classList.add('open'); first.setAttribute('aria-hidden','false'); const head = first.previousElementSibling; head && head.setAttribute('aria-expanded','true'); const chev = head && head.querySelector('.chev'); if(chev) chev.style.transform='rotate(180deg)'; } });
+    })();
   </script>
 </body>
 </html>

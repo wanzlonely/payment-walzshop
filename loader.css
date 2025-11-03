@@ -1,0 +1,40 @@
+/* File: loader.css */
+
+#loader-wrapper {
+    /* Ini adalah style untuk overlay layar penuh */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212; /* Warna background sama dengan body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Pastikan loader di atas segalanya */
+    
+    /* Efek transisi untuk fade-out */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loader-wrapper.hidden {
+    /* Style ini akan ditambahkan oleh JavaScript saat loading selesai */
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Ini adalah kode loader yang Anda berikan.
+  HTML: <div class="loader"></div> 
+*/
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: repeating-conic-gradient(#fff 0 90deg,#ccc 0 180deg); /* Saya ganti #000 jadi #fff agar terlihat di background gelap */
+  animation: l21 1s infinite linear;
+}
+@keyframes l21 {
+  100% {transform: rotate(.5turn)}
+}

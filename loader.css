@@ -4,18 +4,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle, #000 70%, #0a0a0a);
+  background: #000;
   z-index: 9999;
   transition: opacity .4s ease, visibility .4s ease;
 }
-.loader-wrap.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+.loader-wrap.hidden { opacity: 0; visibility: hidden; }
 .loader {
   width: 40px;
   aspect-ratio: 1;
-  --_g: no-repeat radial-gradient(farthest-side, #fff 94%, #0000);
+  --_g: no-repeat radial-gradient(farthest-side, #f2f2f2 94%, #0000);
   background:
     var(--_g) 0 0,
     var(--_g) 100% 0,

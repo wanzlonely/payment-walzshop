@@ -33,7 +33,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background: repeating-conic-gradient(#fff 0 90deg,#ccc 0 180deg); /* Saya ganti #000 jadi #fff agar terlihat di background gelap */
-  animation: l21 1.3s infinite linear;
+  animation: l21 2s infinite linear;
 }
 @keyframes l21 {
   100% {transform: rotate(.5turn)}

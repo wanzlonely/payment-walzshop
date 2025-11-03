@@ -1,26 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TESTIMONI WALZSHOP</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Testimoni WALZSHOP</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="globalLoader" class="loading-overlay show" aria-hidden="false">
+  <div class="loading-overlay show" id="loadingOverlay">
     <div class="loading-inner">
       <div class="loader" aria-hidden="true"></div>
       <div class="loading-text">Loading WALZSHOP...</div>
     </div>
   </div>
 
-  <div class="testi-shell" id="testiShell" aria-hidden="true">
-    <button class="back-fab" id="backFab" aria-label="Kembali">←</button>
-    <header class="testi-hero">
+  <div class="testi-shell">
+    <div class="testi-hero">
       <h1>TESTIMONI WALZSHOP</h1>
       <p class="sub">100+ testimoni pelanggan terpercaya</p>
-    </header>
+    </div>
 
     <main>
       <div id="testiGrid" class="grid" aria-live="polite"></div>
@@ -30,7 +29,12 @@
         <span id="pageInfo" class="page-indicator" style="margin:0 12px;">Page 1</span>
         <button id="nextBtn" class="pager-btn">Next</button>
       </div>
+
+      <div style="text-align:center;margin-top:22px;">
+        <a class="back-link" href="index.html">← Kembali</a>
+      </div>
     </main>
+
   </div>
 
   <script src="script.js"></script>

@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "https://files.catbox.moe/5du1cx.jpg?text=Testi+7",
         "https://files.catbox.moe/rwrjmt.jpg?text=Testi+8",
         "https://files.catbox.moe/53ty1u.jpg?text=Testi+9",
-        "https://via.placeholder.com/300x533.png?text=Testi+10",
+        "https://files.catbox.moe/ygmcje.png?text=Testi+10",
         "https://via.placeholder.com/300x533.png?text=Testi+11",
         "https://via.placeholder.com/300x533.png?text=Testi+12"
         // ... Tambahkan 88 link lainnya di sini

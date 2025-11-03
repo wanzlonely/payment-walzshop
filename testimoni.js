@@ -1,8 +1,10 @@
 // File: testimoni.js
 
-// ==== LOGIKA UNTUK LOADER ====
-// Menunggu semua konten (gambar, css, dll) dimuat penuh
-window.addEventListener('load', () => {
+// ==== LOGIKA UNTUK LOADER (MEMPERBAIKI BUG 2) ====
+// Ganti 'load' menjadi 'DOMContentLoaded'
+// Ini akan menghilangkan loader saat STRUKTUR HALAMAN siap,
+// tidak menunggu 100 gambar selesai di-load.
+document.addEventListener('DOMContentLoaded', () => {
     const loaderWrapper = document.getElementById('loader-wrapper');
     // Tambahkan class 'hidden' untuk memicu transisi fade-out
     loaderWrapper.classList.add('hidden');

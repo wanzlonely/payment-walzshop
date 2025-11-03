@@ -1,418 +1,110 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>WALZSHOP — Payment</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>WALZSHOP — Payment Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loader.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#060608;
-      --card:#0f0f11;
-      --muted:#bfc3c8;
-      --accent:#e6e6e6;
-      --glass: rgba(255,255,255,0.03);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      background: radial-gradient(circle at top, #0b0b0b, #000000);
-      color:var(--accent);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* ====== LOADER FULLSCREEN (login animation) ====== */
-    .loader-wrap{
-      position:fixed;
-      inset:0;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg, rgba(0,0,0,0.95), rgba(0,0,0,0.98));
-      z-index:9999;
-      transition:opacity .45s ease, visibility .45s;
-    }
-    .loader-wrap.hidden{opacity:0; visibility:hidden; pointer-events:none}
-    /* your provided loader */
-    .loader {
-      width: 35px;
-      aspect-ratio: 1;
-      --_g: no-repeat radial-gradient(farthest-side,#000 94%,#0000);
-      background:
-        var(--_g) 0    0,
-        var(--_g) 100% 0,
-        var(--_g) 100% 100%,
-        var(--_g) 0    100%;
-      background-size: 40% 40%;
-      animation: l38 .5s infinite;
-      border-radius:8px;
-      box-shadow:0 8px 30px rgba(0,0,0,0.6);
-    }
-    @keyframes l38 {
-      100% {background-position: 100% 0,100% 100%,0 100%,0 0}
-    }
-
-    /* ====== LAYOUT ====== */
-    .wrap{
-      max-width:440px;
-      margin:26px auto 120px;
-      padding:18px;
-    }
-    .header{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:12px;
-    }
-    .logo{
-      width:86px;
-      height:86px;
-      border-radius:14px;
-      overflow:hidden;
-      box-shadow:0 10px 30px rgba(0,0,0,0.6), 0 0 24px rgba(255,255,255,0.03) inset;
-      border:1px solid rgba(255,255,255,0.03);
-      flex-shrink:0;
-    }
-    .logo img{width:100%;height:100%;object-fit:cover;display:block}
-    h1{
-      margin:0;
-      font-size:20px;
-      letter-spacing:1px;
-      color:var(--accent);
-    }
-    .sub{
-      color:var(--muted);
-      font-size:12px;
-      margin-top:4px;
-    }
-
-    /* ====== MENU BUTTONs ====== */
-    .menu{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top:16px;
-    }
-    .mini-btn{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:12px 14px;
-      color:var(--accent);
-      text-decoration:none;
-      box-shadow:0 6px 18px rgba(0,0,0,0.6);
-      transition:transform .22s ease, background .22s;
-      font-weight:600;
-    }
-    .mini-btn:hover{transform:translateY(-4px)}
-    .mini-btn svg{width:18px;height:18px;opacity:.9}
-
-    /* ====== PAYMENT POSTER-SIZED BOX ====== */
-    .poster-box{
-      margin:28px auto;
-      max-width:420px;
-      width:92%;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:18px;
-      padding:18px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.7);
-      border:1px solid rgba(255,255,255,0.03);
-    }
-
-    /* big visual area like poster */
-    .poster-visual{
-      width:100%;
-      height:360px; /* poster-like height */
-      border-radius:12px;
-      overflow:hidden;
-      background:linear-gradient(135deg,#111,#0b0b0b);
-      display:grid;
-      place-items:center;
-      position:relative;
-      margin-bottom:14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5) inset;
-    }
-    .poster-visual img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .poster-actions{
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      margin-top:6px;
-    }
-    .action-btn{
-      padding:10px 14px;
-      border-radius:12px;
-      background:#121212;
-      border:1px solid rgba(255,255,255,0.03);
-      color:var(--accent);
-      cursor:pointer;
-      font-weight:600;
-      transition:transform .18s ease, background .18s;
-    }
-    .action-btn:hover{transform:translateY(-4px); background:#171717}
-
-    /* ====== DETAILS small card inside poster-style layout ====== */
-    .details{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      text-align:left;
-    }
-    .details .line{display:flex;justify-content:space-between;align-items:center}
-    .label{color:var(--muted);font-size:13px}
-    .value{font-weight:700;color:var(--accent);letter-spacing:0.6px}
-
-    /* copy icon */
-    .copy{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:10px;
-      background:rgba(255,255,255,0.02);
-      cursor:pointer;
-      font-weight:600;
-    }
-
-    /* floating testimoni button */
-    .floating-btn{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      width:60px;height:60px;border-radius:50%;
-      background:linear-gradient(135deg,#1b1b1b,#0c0c0c);
-      display:grid;place-items:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.6);
-      z-index:40;
-      text-decoration:none;color:var(--accent);
-      font-size:22px;
-      animation: pulse 2.6s infinite;
-    }
-    @keyframes pulse{
-      0%{transform:scale(1)}
-      70%{transform:scale(1.08)}
-      100%{transform:scale(1)}
-    }
-
-    /* small admin inputs (for you to paste links easily) */
-    .admin{
-      margin-top:10px;
-      display:grid;
-      gap:8px;
-      background:var(--glass);
-      padding:10px;border-radius:10px;
-      font-size:13px;
-      color:var(--muted);
-    }
-    .admin input{background:transparent;border:1px solid rgba(255,255,255,0.03);color:var(--accent);padding:8px;border-radius:8px;width:100%}
-    .admin .row{display:flex;gap:8px}
-
-    /* responsive */
-    @media (max-width:420px){
-      .poster-visual{height:320px}
-      .logo{width:76px;height:76px}
-    }
-  </style>
 </head>
 <body>
-  <!-- Loader (full screen) -->
+
+  <!-- Loader -->
   <div class="loader-wrap" id="loader">
-    <div style="text-align:center;color:#ddd;margin-bottom:18px">
-      <div class="loader" aria-hidden="true"></div>
-    </div>
+    <div class="loader"></div>
   </div>
 
-  <div class="wrap">
-    <div class="header">
-      <div class="logo"><img id="logoImg" src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP"></div>
-      <div>
-        <h1>WALZSHOP</h1>
-        <div class="sub">Official Payment — Quick Checkout</div>
-      </div>
-    </div>
+  <!-- Header -->
+  <div class="header">
+    <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP Logo" class="logo">
+    <h1>WALZSHOP</h1>
+    <div class="divider"></div>
+  </div>
 
-    <div class="menu">
-      <a class="mini-btn" href="#qris-section">
+  <!-- Accordion -->
+  <div class="accordion">
+
+    <!-- QRIS -->
+    <div class="accordion-item">
+      <button class="accordion-header">
         <span>PAYMENT QRIS</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      </a>
-      <a class="mini-btn" href="#dana-section">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <div class="accordion-content">
+        <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS" class="qris-img">
+        <button class="btn" onclick="window.open('https://files.catbox.moe/pa0iwo.png','_blank')">Perbesar QRIS</button>
+      </div>
+    </div>
+
+    <!-- DANA -->
+    <div class="accordion-item">
+      <button class="accordion-header">
         <span>PAYMENT DANA</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <!-- Poster-sized Payment Box (QRIS poster look) -->
-    <div class="poster-box" id="qris-section">
-      <div class="poster-visual" id="posterVisual">
-        <!-- image will fill this area -->
-        <img id="posterImg" src="https://files.catbox.moe/pa0iwo.png" alt="Poster QRIS / Payment">
-      </div>
-
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-        <div class="details">
-          <div class="line"><div class="label">Tipe</div><div class="value">QRIS / Poster</div></div>
-          <div class="line"><div class="label">Merchant</div><div class="value">WALZSHOP</div></div>
-          <div class="line"><div class="label">NMID</div><div class="value">ID102... (auto poster)</div></div>
-        </div>
-
-        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-          <button class="action-btn" onclick="openImage()">Perbesar QRIS</button>
-          <div class="action-btn" id="downloadPosterBtn" onclick="downloadPoster()">Unduh Poster</div>
-        </div>
-      </div>
-
-      <!-- admin quick inputs to change poster/logo quickly (visible to you only) -->
-      <div class="admin" style="margin-top:14px">
-        <div style="font-weight:700;color:#efefef">Quick Edit (temp)</div>
-        <div class="row">
-          <input id="inputPoster" placeholder="Tempel link gambar poster/QRIS di sini" />
-        </div>
-        <div class="row">
-          <input id="inputLogo" placeholder="Tempel link logo (kiri atas)" />
-        </div>
-        <div style="display:flex;gap:8px">
-          <button class="action-btn" style="flex:1" onclick="applyLinks()">Terapkan</button>
-          <button class="action-btn" style="flex:1" onclick="resetDefaults()">Reset</button>
-        </div>
-        <div style="font-size:12px;color:var(--muted)">Paste URL gambar (png/jpg). Halaman akan menampilkan langsung.</div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <div class="accordion-content">
+        <p><b>Nama:</b> WALZEXPLOIT</p>
+        <p><b>Nomor:</b> 082298902274</p>
+        <button class="btn" onclick="copyNumber('082298902274')">Copy Number</button>
       </div>
     </div>
 
-    <!-- DANA card (poster-style small) -->
-    <div class="poster-box" id="dana-section" style="margin-top:20px;">
-      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
-        <div style="flex:1">
-          <div class="details">
-            <div class="line"><div class="label">Metode</div><div class="value">DANA</div></div>
-            <div class="line"><div class="label">A/N</div><div class="value" id="danaName">WALZEXPLOIT</div></div>
-            <div class="line"><div class="label">Nomor</div>
-              <div style="display:flex;gap:8px;align-items:center">
-                <div class="value" id="danaNumber">082298902274</div>
-                <div class="copy" onclick="copyToClipboard('082298902274')">Copy</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="min-width:160px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-          <div class="action-btn" onclick="showToast('Buka aplikasi DANA dan scan/ketik nomor')">Buka DANA</div>
-          <div class="action-btn" onclick="copyToClipboard('082298902274')">Salin Nomor</div>
-        </div>
+    <!-- GOPAY -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>PAYMENT GOPAY</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <div class="accordion-content">
+        <p><b>Nama:</b> TI** SUT***</p>
+        <p><b>Nomor:</b> 082298902274</p>
+        <button class="btn" onclick="copyNumber('082298902274')">Copy Number</button>
       </div>
     </div>
 
-    <!-- GOPAY card -->
-    <div class="poster-box" style="margin-top:20px;">
-      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
-        <div style="flex:1">
-          <div class="details">
-            <div class="line"><div class="label">Metode</div><div class="value">GoPay</div></div>
-            <div class="line"><div class="label">A/N</div><div class="value" id="gopayName">TI** SUT***</div></div>
-            <div class="line"><div class="label">Nomor</div>
-              <div style="display:flex;gap:8px;align-items:center">
-                <div class="value" id="gopayNumber">082298902274</div>
-                <div class="copy" onclick="copyToClipboard('082298902274')">Copy</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="min-width:160px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-          <div class="action-btn" onclick="showToast('Buka aplikasi GoPay/OVO dan gunakan nomor')">Buka GoPay</div>
-          <div class="action-btn" onclick="copyToClipboard('082298902274')">Salin Nomor</div>
-        </div>
+    <!-- PANEL -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span>PRODUK PANEL</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <div class="accordion-content">
+        <p>Menjual panel, hosting & bot murah.</p>
       </div>
     </div>
-
   </div>
 
-  <!-- floating testimoni -->
-  <a href="testimoni.html" class="floating-btn" title="Testimoni">💬</a>
-
-  <!-- small toast -->
-  <div id="toast" style="position:fixed;left:50%;transform:translateX(-50%);bottom:90px;background:#1a1a1a;padding:10px 16px;border-radius:10px;color:#eee;display:none;box-shadow:0 8px 30px rgba(0,0,0,0.5);z-index:60"></div>
+  <!-- Floating -->
+  <a href="testimoni.html" class="floating-btn">💬</a>
 
   <script>
-    /* ====== DATA: default values (edit here) ====== */
-    const DATA_POSTER = 'https://files.catbox.moe/pa0iwo.png'; // default poster / QRIS
-    const DATA_LOGO = 'https://files.catbox.moe/hrtpys.jpg';   // default logo
-    const DATA_DANA_NUMBER = '082298902274';
-    const DATA_DANA_NAME = 'WALZEXPLOIT';
-    const DATA_GOPAY_NUMBER = '082298902274';
-    const DATA_GOPAY_NAME = 'TI** SUT***';
-
-    // initial apply
-    document.getElementById('posterImg').src = DATA_POSTER;
-    document.getElementById('logoImg').src = DATA_LOGO;
-    document.getElementById('danaNumber').textContent = DATA_DANA_NUMBER;
-    document.getElementById('danaName').textContent = DATA_DANA_NAME;
-    document.getElementById('gopayNumber').textContent = DATA_GOPAY_NUMBER;
-    document.getElementById('gopayName').textContent = DATA_GOPAY_NAME;
-    document.getElementById('inputPoster').value = DATA_POSTER;
-    document.getElementById('inputLogo').value = DATA_LOGO;
-
-    // apply links from admin inputs
-    function applyLinks(){
-      const p = document.getElementById('inputPoster').value.trim();
-      const l = document.getElementById('inputLogo').value.trim();
-      if(p) document.getElementById('posterImg').src = p;
-      if(l) document.getElementById('logoImg').src = l;
-      showToast('Poster & logo diperbarui');
-    }
-    function resetDefaults(){
-      document.getElementById('posterImg').src = DATA_POSTER;
-      document.getElementById('logoImg').src = DATA_LOGO;
-      document.getElementById('inputPoster').value = DATA_POSTER;
-      document.getElementById('inputLogo').value = DATA_LOGO;
-      showToast('Reset ke default');
-    }
-
-    function openImage(){
-      const url = document.getElementById('posterImg').src;
-      window.open(url,'_blank');
-    }
-    function downloadPoster(){
-      const url = document.getElementById('posterImg').src;
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'walzshop_poster';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }
-
-    function copyToClipboard(text){
-      navigator.clipboard.writeText(text).then(()=>{
-        showToast('Nomor disalin: '+text);
-      }).catch(()=>showToast('Gagal menyalin'));
-    }
-
-    function showToast(msg, t=1800){
-      const el = document.getElementById('toast');
-      el.textContent = msg;
-      el.style.display = 'block';
-      clearTimeout(el._tm);
-      el._tm = setTimeout(()=>el.style.display='none', t);
-    }
-
-    /* ====== Loader logic: show until page fully loaded + small min time ====== */
-    const loaderWrap = document.getElementById('loader');
-    window.addEventListener('load', ()=> {
-      // ensure loader visible at least 700ms for smoothness
-      setTimeout(()=> loaderWrap.classList.add('hidden'), 700);
+    // Loader
+    window.addEventListener("load", () => {
+      setTimeout(() => document.getElementById("loader").classList.add("hidden"), 700);
     });
 
-    // allow pressing ESC to skip loader for testing
-    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') loaderWrap.classList.add('hidden') });
+    // Accordion
+    document.querySelectorAll(".accordion-header").forEach(header => {
+      header.addEventListener("click", () => {
+        const item = header.parentElement;
+        item.classList.toggle("active");
+      });
+    });
+
+    // Copy
+    function copyNumber(num){
+      navigator.clipboard.writeText(num);
+      alert("Nomor disalin: " + num);
+    }
   </script>
 </body>
 </html>

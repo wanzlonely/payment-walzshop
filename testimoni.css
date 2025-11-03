@@ -85,7 +85,7 @@ body {
     background-color: var(--card-color);
     border-radius: var(--border-radius);
     overflow: hidden;
-    aspect-ratio: 9 / 16; /* Rasio poster */
+    aspect-ratio: 8.53 / 9.67; /* Rasio poster */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 

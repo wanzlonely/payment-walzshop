@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TESTIMONI WALZSHOP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="testi-shell">
+
+    <header class="testi-hero">
+      <div style="display:flex;align-items:center;gap:12px;justify-content:center;">
+        <a class="back-link" href="/index.html" aria-label="Kembali ke WALZSHOP">← Kembali ke WALZSHOP</a>
+      </div>
+      <h1>TESTIMONI WALZSHOP</h1>
+      <p class="sub">Kumpulan testimoni pelanggan — gunakan tombol Next untuk melihat halaman berikutnya</p>
+    </header>
+
+    <main class="testi-main" id="testiMain" aria-live="polite">
+      <section class="grid" id="grid"></section>
+
+      <div class="pager">
+        <button id="prevBtn" class="pager-btn" aria-label="Previous testimonials">Prev</button>
+        <div class="page-indicator" id="pageIndicator">Page 1 / 1</div>
+        <button id="nextBtn" class="pager-btn" aria-label="Next testimonials">Next Testimoni</button>
+      </div>
+    </main>
+
+    <footer class="testi-foot">
+      <div>WALZSHOP © 2025</div>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" aria-hidden="true">✔︎ copied</div>
+
+  <script>
+  (function(){
+    const perPage = 9; // 3 columns x 3 rows per page
+    const testimonials = [
+      // 100 placeholder/testimonial image URLs — replace with your real links
+      "https://via.placeholder.com/900x460.png?text=Testimoni+1",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+2",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+3",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+4",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+5",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+6",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+7",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+8",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+9",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+10",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+11",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+12",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+13",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+14",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+15",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+16",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+17",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+18",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+19",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+20",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+21",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+22",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+23",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+24",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+25",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+26",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+27",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+28",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+29",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+30",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+31",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+32",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+33",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+34",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+35",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+36",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+37",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+38",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+39",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+40",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+41",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+42",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+43",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+44",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+45",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+46",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+47",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+48",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+49",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+50",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+51",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+52",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+53",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+54",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+55",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+56",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+57",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+58",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+59",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+60",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+61",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+62",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+63",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+64",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+65",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+66",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+67",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+68",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+69",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+70",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+71",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+72",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+73",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+74",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+75",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+76",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+77",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+78",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+79",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+80",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+81",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+82",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+83",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+84",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+85",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+86",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+87",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+88",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+89",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+90",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+91",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+92",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+93",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+94",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+95",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+96",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+97",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+98",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+99",
+      "https://via.placeholder.com/900x460.png?text=Testimoni+100"
+    ];
+
+    const grid = document.getElementById('grid');
+    const pageIndicator = document.getElementById('pageIndicator');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const toast = document.getElementById('toast');
+
+    let currentPage = 1;
+    const totalPages = Math.max(1, Math.ceil(testimonials.length / perPage));
+
+    function renderPage(page){
+      currentPage = Math.min(Math.max(1, page), totalPages);
+      grid.innerHTML = '';
+      const start = (currentPage - 1) * perPage;
+      const end = Math.min(testimonials.length, start + perPage);
+      for(let i = start; i < end; i++){
+        const url = testimonials[i];
+        const card = document.createElement('article');
+        card.className = 'testi-card';
+
+        const imgWrap = document.createElement('div');
+        imgWrap.className = 'img-wrap';
+
+        const img = document.createElement('img');
+        img.className = 'testi-img';
+        img.src = url;
+        img.alt = 'Testimoni ' + (i+1);
+        img.draggable = false;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'img-overlay';
+        overlay.title = 'Testimoni WALZSHOP';
+
+        imgWrap.appendChild(img);
+        imgWrap.appendChild(overlay);
+
+        const caption = document.createElement('div');
+        caption.className = 'caption';
+        caption.textContent = '';
+
+        card.appendChild(imgWrap);
+        card.appendChild(caption);
+
+        grid.appendChild(card);
+
+        img.addEventListener('contextmenu', e => e.preventDefault());
+        overlay.addEventListener('contextmenu', e => e.preventDefault());
+        img.addEventListener('dragstart', e => e.preventDefault());
+      }
+
+      pageIndicator.textContent = 'Page ' + currentPage + ' / ' + totalPages;
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', () => renderPage(currentPage - 1));
+    nextBtn.addEventListener('click', () => renderPage(currentPage + 1));
+
+    renderPage(1);
+
+    let toastTimer;
+    function showToast(msg){
+      clearTimeout(toastTimer);
+      toast.textContent = '✔︎ ' + msg;
+      toast.classList.add('show');
+      toast.setAttribute('aria-hidden','false');
+      toastTimer = setTimeout(()=> {
+        toast.classList.remove('show');
+        toast.setAttribute('aria-hidden','true');
+      }, 1400);
+    }
+
+    document.addEventListener('contextmenu', function(e){ e.preventDefault(); }, {passive:false});
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'F12' ||
+          (e.ctrlKey && e.key.toLowerCase() === 'u') ||
+          (e.ctrlKey && e.key.toLowerCase() === 's') ||
+          (e.ctrlKey && e.key.toLowerCase() === 'p') ||
+          (e.ctrlKey && e.shiftKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'c'))
+         ) {
+        e.preventDefault();
+        showToast('Action disabled');
+        return false;
+      }
+    }, {passive:false});
+    document.addEventListener('auxclick', e => { if (e.button === 1) e.preventDefault(); });
+
+  })();
+  </script>
+</body>
+</html>

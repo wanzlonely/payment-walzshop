@@ -23,7 +23,6 @@
         <article class="card">
           <button class="card-head" data-target="panel-qris" aria-expanded="false" type="button">
             <span class="svg-wrap" aria-hidden="true">
-              <!-- QR grid icon -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="7" height="7" rx="1"></rect>
                 <rect x="14" y="3" width="7" height="7" rx="1"></rect>
@@ -53,7 +52,6 @@
         <article class="card">
           <button class="card-head" data-target="panel-dana" aria-expanded="false" type="button">
             <span class="svg-wrap" aria-hidden="true">
-              <!-- Wallet icon -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="7" width="20" height="12" rx="2"></rect>
                 <path d="M16 3v4"></path>
@@ -89,7 +87,6 @@
         <article class="card">
           <button class="card-head" data-target="panel-gopay" aria-expanded="false" type="button">
             <span class="svg-wrap" aria-hidden="true">
-              <!-- Card / pay icon -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="5" width="20" height="14" rx="2"></rect>
                 <path d="M7 10h6"></path>
@@ -108,7 +105,7 @@
             <div class="info">
               <div class="row">
                 <div class="label">Nama</div>
-                <div class="value">TI** SUT***</div>
+                <div class="value">TI** SUT***@</div>
               </div>
               <div class="row">
                 <div class="label">Nomor</div>
@@ -125,7 +122,6 @@
         <article class="card">
           <button class="card-head" data-target="panel-layanan" aria-expanded="false" type="button">
             <span class="svg-wrap" aria-hidden="true">
-              <!-- Box icon -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4z"></path>
               </svg>
@@ -153,7 +149,6 @@
         <article class="card">
           <button class="card-head" data-target="panel-produk" aria-expanded="false" type="button">
             <span class="svg-wrap" aria-hidden="true">
-              <!-- Server stack icon -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="6" rx="2"></rect>
                 <rect x="3" y="11" width="18" height="6" rx="2"></rect>
@@ -297,12 +292,12 @@
       const modal = document.getElementById('modal');
       document.getElementById('openQ')?.addEventListener('click', () => {
         modal.classList.add('show');
-        modal.setAttribute('aria-hidden', 'false');
+        modal.setAttribute('aria-hidden','false');
         document.body.style.overflow = 'hidden';
       });
       document.getElementById('closeModal')?.addEventListener('click', () => {
         modal.classList.remove('show');
-        modal.setAttribute('aria-hidden', 'true');
+        modal.setAttribute('aria-hidden','true');
         document.body.style.overflow = 'auto';
       });
       modal.addEventListener('click', (e)=> { if (e.target === modal) { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='auto'; } });

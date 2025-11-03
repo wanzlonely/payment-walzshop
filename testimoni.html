@@ -1,58 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TESTIMONI WALZSHOP</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Testimoni WALZSHOP</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="testi-shell">
-    <header class="testi-hero">
-      <div style="display:flex;align-items:center;gap:12px;justify-content:center;">
-        <a class="back-link" href="/index.html" aria-label="Kembali ke WALZSHOP">← Kembali ke WALZSHOP</a>
+  <div class="loading-overlay show">
+    <div class="loading-inner">
+      <div class="dino-track">
+        <img class="dino" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Dinosaur_footprint_white.png" alt="Dino">
       </div>
-      <h1>TESTIMONI WALZSHOP</h1>
-      <p class="sub">Kumpulan testimoni pelanggan — gunakan tombol Next untuk melihat halaman berikutnya</p>
-    </header>
-
-    <main class="testi-main" id="testiMain" aria-live="polite">
-      <!-- loading overlay (dinosaur) -->
-      <div id="loadingOverlay" class="loading-overlay" aria-hidden="false">
-        <div class="loading-inner">
-          <div class="dino-track">
-            <!-- simple dinosaur SVG (white) that moves left→right -->
-            <svg class="dino" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <!-- body simplified dino white -->
-              <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M8 38c8-10 20-12 32-8 6 2 10 6 18 6 6 0 12-4 18-6 8-3 18-2 26 4" />
-                <path d="M18 36c-2 6 0 12 6 14 6 2 12-2 16-6" />
-                <path d="M36 20c2-6 8-10 16-10 8 0 14 6 16 12" />
-                <path d="M10 40l-4 8" />
-                <path d="M26 44l-2 6" />
-                <path d="M46 44l2 6" />
-                <path d="M68 44l2 6" />
-              </g>
-            </svg>
-          </div>
-          <div class="loading-text">Loading WALZSHOP...</div>
-        </div>
-      </div>
-
-      <section class="grid" id="grid" aria-label="Grid testimoni"></section>
-
-      <div class="pager">
-        <button id="prevBtn" class="pager-btn" aria-label="Previous testimonials">Prev</button>
-        <div class="page-indicator" id="pageIndicator">Page 1 / 1</div>
-        <button id="nextBtn" class="pager-btn" aria-label="Next testimonials">Next Testimoni</button>
-      </div>
-    </main>
-
-    <footer class="testi-foot"><div>WALZSHOP © 2025</div></footer>
+      <div class="loading-text">Loading WALZSHOP...</div>
+    </div>
   </div>
 
-  <div id="toast" class="toast" aria-hidden="true">✔︎ copied</div>
+  <div class="testi-shell">
+    <div class="testi-hero">
+      <h1>TESTIMONI WALZSHOP</h1>
+      <p class="sub">100+ testimoni pelanggan terpercaya</p>
+    </div>
+    <div id="testiGrid" class="grid"></div>
+    <div class="pager">
+      <button id="prevBtn" class="pager-btn">Prev</button>
+      <span id="pageInfo" class="page-indicator"></span>
+      <button id="nextBtn" class="pager-btn">Next</button>
+    </div>
+    <div class="testi-foot">
+      <a href="index.html" class="back-link">← Kembali ke WALZSHOP</a>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

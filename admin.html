@@ -6,58 +6,49 @@
   <title>Admin Testimoni — WALZSHOP</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .admin-wrap { max-width: 820px; margin: 30px auto; padding: 18px; }
-    .panel { background: #101010; padding: 16px; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
-    .input, input[type="text"] { width:100%; padding:12px 14px; border-radius:10px; border: none; background:#151515; color:#f1f1f1; margin-bottom:10px; }
-    .row { display:flex; gap:10px; margin-top:8px; }
-    .small-btn { padding:10px 12px; border-radius:10px; border:none; cursor:pointer; background:#1a1a1a; color:#f1f1f1; font-weight:600; }
-    .small-btn.warn { background: #b32929; }
-    .preview-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; margin-top:14px; }
-    .preview-card { position:relative; border-radius:10px; overflow:hidden; background:#111; }
-    .preview-card img { width:100%; height:120px; object-fit:cover; display:block; }
+    body { background:linear-gradient(180deg,#000,#030303); padding:20px; }
+    .admin-wrap { max-width:920px; margin:24px auto; }
+    .panel { background:linear-gradient(180deg,#0f0f10,#0a0a0a); padding:16px; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.6); color:var(--text); }
+    .input { width:100%; padding:12px 14px; border-radius:10px; background:#111; border:none; color:var(--text); margin-bottom:10px; }
+    .row { display:flex; gap:10px; align-items:center; margin-top:8px; flex-wrap:wrap; }
+    .small-btn { background:#1a1a1a; color:var(--text); padding:10px 12px; border-radius:10px; border:none; cursor:pointer; font-weight:700; }
+    .small-btn.warn { background:#b32929; }
+    .preview-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; margin-top:12px;}
+    .preview-card { border-radius:10px; overflow:hidden; background:#111; position:relative; }
+    .preview-card img { width:100%; height:110px; object-fit:cover; display:block; }
     .del-btn { position:absolute; top:8px; right:8px; background:rgba(0,0,0,0.6); color:white; border:none; padding:6px 8px; border-radius:8px; cursor:pointer; }
-    .hint { color:#bdbdbd; font-size:13px; margin-top:8px; }
+    .hint { color:#bdbdbd; font-size:13px; margin-top:10px; }
   </style>
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="site-title">Admin — Testimoni</h1>
-      <div class="title-underline"></div>
-    </div>
-  </header>
-
-  <main class="admin-wrap">
+  <div class="admin-wrap">
     <div id="loginPanel" class="panel">
-      <h3>🔒 Masuk Admin</h3>
-      <input id="pinInput" type="password" placeholder="Masukkan PIN admin..." class="input" />
+      <h2>🔐 Admin Login</h2>
+      <input id="pinInput" class="input" type="password" placeholder="Masukkan PIN admin..." aria-label="PIN Admin">
       <div class="row">
         <button id="loginBtn" class="small-btn">Login</button>
-        <a href="testimoni.html" class="small-btn" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">Lihat Testimoni</a>
+        <a href="testimoni.html" class="small-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">Lihat Testimoni</a>
       </div>
-      <p class="hint">PIN default: <strong>1999</strong>. Ubah di kode bila perlu.</p>
+      <p class="hint">PIN default: <strong>1999</strong> (ubah di file jika perlu)</p>
     </div>
 
-    <div id="adminPanel" class="panel" style="display:none;">
-      <h3>⚙️ Kelola Testimoni</h3>
-      <input id="imgUrl" type="text" class="input" placeholder="Tempel link gambar (https://...)">
+    <div id="adminPanel" class="panel" style="display:none;margin-top:14px;">
+      <h2>⚙️ Kelola Testimoni</h2>
+      <input id="imgUrl" class="input" type="text" placeholder="Tempel link gambar (https://...)">
       <div class="row">
         <button id="addBtn" class="small-btn">Tambah</button>
-        <button id="importBtn" class="small-btn">Import JSON</button>
-        <button id="exportBtn" class="small-btn">Export JSON</button>
         <button id="clearBtn" class="small-btn warn">Hapus Semua</button>
+        <button id="exportBtn" class="small-btn">Export JSON</button>
+        <button id="importBtn" class="small-btn">Import JSON</button>
       </div>
 
       <div class="hint">Preview</div>
-      <div id="previewGrid" class="preview-grid" style="margin-top:12px;"></div>
+      <div id="previewGrid" class="preview-grid"></div>
     </div>
-
-  </main>
+  </div>
 
   <script>
-    // admin logic
-    const correctPin = '1999'; // ganti sesuai kebutuhan
+    const correctPin = '1999';
     const loginPanel = document.getElementById('loginPanel');
     const adminPanel = document.getElementById('adminPanel');
     const pinInput = document.getElementById('pinInput');
@@ -68,7 +59,7 @@
     function renderPreview(){
       const grid = document.getElementById('previewGrid');
       grid.innerHTML = '';
-      posters.forEach((url, idx) => {
+      posters.forEach((url, idx)=>{
         const div = document.createElement('div');
         div.className = 'preview-card';
         div.innerHTML = `<img src="${url}" alt="testi"><button class="del-btn" data-i="${idx}">✖</button>`;
@@ -80,6 +71,7 @@
           posters.splice(i,1);
           localStorage.setItem('walz_testimoni', JSON.stringify(posters));
           renderPreview();
+          showTemp('Gambar dihapus');
         });
       });
     }
@@ -89,19 +81,20 @@
         loginPanel.style.display = 'none';
         adminPanel.style.display = 'block';
         renderPreview();
+        showTemp('Login sukses');
       } else {
-        alert('PIN salah!');
+        showTemp('PIN salah');
       }
     });
 
     document.getElementById('addBtn').addEventListener('click', ()=>{
       const url = document.getElementById('imgUrl').value.trim();
-      if(!url) return alert('Masukkan link gambar!');
+      if(!url) return showTemp('Isi link gambar terlebih dahulu');
       posters.push(url);
       localStorage.setItem('walz_testimoni', JSON.stringify(posters));
       document.getElementById('imgUrl').value = '';
       renderPreview();
-      alert('Gambar ditambahkan');
+      showTemp('Gambar ditambahkan');
     });
 
     document.getElementById('clearBtn').addEventListener('click', ()=>{
@@ -109,47 +102,53 @@
         posters = [];
         localStorage.removeItem('walz_testimoni');
         renderPreview();
+        showTemp('Semua testimoni dihapus');
       }
     });
 
-    // export / import JSON (backup)
+    // export/import
     document.getElementById('exportBtn').addEventListener('click', ()=>{
       const dataStr = JSON.stringify(posters, null, 2);
-      const blob = new Blob([dataStr], {type: 'application/json'});
+      const blob = new Blob([dataStr], {type:'application/json'});
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url;
-      a.download = 'walz_testimoni_backup.json';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
+      a.href = url; a.download = 'walz_testimoni_backup.json';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      showTemp('Export selesai');
     });
 
     document.getElementById('importBtn').addEventListener('click', ()=>{
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = '.json,application/json';
+      const input = document.createElement('input'); input.type = 'file'; input.accept = '.json,application/json';
       input.onchange = e=>{
-        const f = e.target.files[0];
-        if(!f) return;
+        const f = e.target.files[0]; if(!f) return;
         const reader = new FileReader();
-        reader.onload = evt => {
-          try {
+        reader.onload = evt=>{
+          try{
             const arr = JSON.parse(evt.target.result);
             if(Array.isArray(arr)){
               posters = arr;
               localStorage.setItem('walz_testimoni', JSON.stringify(posters));
               renderPreview();
-              alert('Import sukses');
-            } else alert('File tidak valid (harus berupa array JSON)');
-          } catch (err) { alert('Gagal membaca file'); }
+              showTemp('Import sukses');
+            } else showTemp('File tidak valid');
+          } catch { showTemp('Gagal membaca file'); }
         };
         reader.readAsText(f);
       };
       input.click();
     });
 
+    // small in-page toast for admin
+    function showTemp(m){
+      const t = document.createElement('div'); t.textContent = m;
+      t.style.position='fixed'; t.style.top='18px'; t.style.right='18px';
+      t.style.background='#1a1a1a'; t.style.color='#fff'; t.style.padding='10px 12px';
+      t.style.borderRadius='8px'; t.style.boxShadow='0 10px 30px rgba(0,0,0,0.6)'; t.style.zIndex=9999;
+      document.body.appendChild(t); setTimeout(()=> t.remove(),2200);
+    }
+
+    // initial preview on load (if admin already logged out)
+    renderPreview();
   </script>
 </body>
 </html>

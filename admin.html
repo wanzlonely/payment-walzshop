@@ -6,8 +6,8 @@
 <title>Admin Testimoni — WALZSHOP</title>
 <link rel="stylesheet" href="style.css">
 <style>
-body{background:#000;color:#f0f0f0;font-family:'Poppins',sans-serif;text-align:center;padding:20px;}
-.login-box,.admin-box{max-width:600px;margin:30px auto;background:#111;border-radius:14px;padding:20px;box-shadow:0 0 20px rgba(0,0,0,0.6);}
+body{background:#000;color:#f1f1f1;font-family:'Poppins',sans-serif;text-align:center;padding:20px;}
+.login-box,.admin-box{max-width:600px;margin:40px auto;background:#111;border-radius:16px;padding:25px;box-shadow:0 0 20px rgba(0,0,0,0.6);}
 input{width:100%;padding:10px;border:none;border-radius:8px;background:#1a1a1a;color:#fff;margin-bottom:10px;}
 button{background:#242424;color:#fff;border:none;border-radius:8px;padding:10px 15px;font-weight:600;cursor:pointer;}
 button:hover{background:#333;}
@@ -18,24 +18,24 @@ button:hover{background:#333;}
 </style>
 </head>
 <body>
+
 <div class="login-box" id="loginBox">
   <h2>🔒 Login Admin</h2>
-  <p>Masukkan PIN:</p>
   <input type="password" id="pinInput" placeholder="Masukkan PIN...">
   <button onclick="checkPin()">Login</button>
 </div>
 
 <div class="admin-box" id="adminBox" style="display:none;">
   <h1>⚙️ Admin Testimoni</h1>
-  <input type="text" id="imgLink" placeholder="https://files.catbox.moe/gambar-testimoni.jpg">
+  <input type="text" id="imgLink" placeholder="https://files.catbox.moe/gambar.jpg">
   <button onclick="addPoster()">Tambah</button>
   <button onclick="clearAll()" style="background:#b32929;">Hapus Semua</button>
-  <a href="testimoni.html" class="back-btn" style="display:block;margin-top:20px;">🔙 Lihat Testimoni</a>
+  <a href="testimoni.html" class="btn" style="margin-top:10px;">🔙 Lihat Testimoni</a>
   <div class="preview-grid" id="previewGrid"></div>
 </div>
 
 <script>
-const correctPin="1999"; // Ganti PIN
+const correctPin="1999";
 const loginBox=document.getElementById("loginBox");
 const adminBox=document.getElementById("adminBox");
 const imgLink=document.getElementById("imgLink");
@@ -45,8 +45,9 @@ let posters=JSON.parse(localStorage.getItem("walz_testimoni"))||[];
 function checkPin(){
   const pin=document.getElementById("pinInput").value.trim();
   if(pin===correctPin){
-    loginBox.style.display="none";adminBox.style.display="block";
-  }else alert("PIN salah!");
+    loginBox.style.display="none";
+    adminBox.style.display="block";
+  } else alert("PIN salah!");
 }
 function render(){
   grid.innerHTML="";
@@ -62,7 +63,8 @@ function addPoster(){
   if(!url)return alert("Isi link gambar dulu!");
   posters.push(url);
   localStorage.setItem("walz_testimoni",JSON.stringify(posters));
-  imgLink.value="";render();
+  imgLink.value="";
+  render();
 }
 function del(i){
   posters.splice(i,1);

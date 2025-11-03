@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Admin Testimoni — WALZSHOP</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{background:#0d0d0d;color:white;font-family:'Poppins',sans-serif;text-align:center;padding:20px;}
+    .login-box,.admin-box{max-width:600px;margin:30px auto;background:#111;border-radius:14px;padding:20px;box-shadow:0 0 20px rgba(0,0,0,0.6);}
+    input{width:100%;padding:10px;border:none;border-radius:8px;background:#1a1a1a;color:white;margin-bottom:10px;}
+    button{background:#242424;color:white;border:none;border-radius:8px;padding:10px 15px;font-weight:600;cursor:pointer;}
+    button:hover{background:#333;}
+    .preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:20px;}
+    .preview-card{background:#1a1a1a;border-radius:10px;overflow:hidden;position:relative;}
+    .preview-card img{width:100%;height:140px;object-fit:cover;}
+    .delete-btn{position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.6);border:none;color:white;padding:4px 6px;border-radius:6px;cursor:pointer;}
+  </style>
+</head>
+<body>
+
+  <div class="login-box" id="loginBox">
+    <h2>🔒 Login Admin</h2>
+    <p>Masukkan PIN Admin:</p>
+    <input type="password" id="pinInput" placeholder="Masukkan PIN...">
+    <button onclick="checkPin()">Login</button>
+  </div>
+
+  <div class="admin-box" id="adminBox" style="display:none;">
+    <h1>⚙️ Admin Testimoni WALZSHOP</h1>
+    <input type="text" id="imgLink" placeholder="https://files.catbox.moe/gambar-testimoni.jpg">
+    <button onclick="addPoster()">Tambah</button>
+    <button onclick="clearAll()" style="background:#b32929;">Hapus Semua</button>
+    <a href="testimoni.html" class="back-btn" style="display:block;margin-top:20px;">🔙 Lihat Testimoni</a>
+    <div class="preview-grid" id="previewGrid"></div>
+  </div>
+
+  <script>
+    const correctPin="1999"; // Ganti PIN di sini
+    const loginBox=document.getElementById("loginBox");
+    const adminBox=document.getElementById("adminBox");
+    const imgLink=document.getElementById("imgLink");
+    const grid=document.getElementById("previewGrid");
+    let posters=JSON.parse(localStorage.getItem("walz_testimoni"))||[];
+
+    function checkPin(){
+      const pin=document.getElementById("pinInput").value.trim();
+      if(pin===correctPin){
+        loginBox.style.display="none";
+        adminBox.style.display="block";
+      }else{
+        alert("PIN salah!");
+      }
+    }
+
+    function renderPreview(){
+      grid.innerHTML="";
+      posters.forEach((url,i)=>{
+        const card=document.createElement("div");
+        card.className="preview-card";
+        card.innerHTML=`<img src="${url}"><button class='delete-btn' onclick='deletePoster(${i})'>✖</button>`;
+        grid.appendChild(card);
+      });
+    }
+
+    function addPoster(){
+      const url=imgLink.value.trim();
+      if(!url)return alert("Isi link gambar dulu!");
+      posters.push(url);
+      localStorage.setItem("walz_testimoni",JSON.stringify(posters));
+      imgLink.value="";
+      renderPreview();
+    }
+
+    function deletePoster(i){
+      posters.splice(i,1);
+      localStorage.setItem("walz_testimoni",JSON.stringify(posters));
+      renderPreview();
+    }
+
+    function clearAll(){
+      if(confirm("Yakin hapus semua testimoni?")){
+        posters=[];
+        localStorage.removeItem("walz_testimoni");
+        renderPreview();
+      }
+    }
+
+    renderPreview();
+  </script>
+</body>
+</html>

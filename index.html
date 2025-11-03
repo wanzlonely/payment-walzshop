@@ -3,143 +3,126 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WALZSHOP — Dark Solid Elegant</title>
-
-  <!-- Font -->
+  <title>WALZSHOP — Dark Solid</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="page">
 
-    <!-- Header / Hero -->
+    <!-- HERO -->
     <header class="hero">
-      <div class="hero-inner">
-        <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP logo" class="hero-logo">
-        <h1 class="brand">WALZSHOP</h1>
-        <div class="brand-line"></div>
-      </div>
+      <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP logo" class="hero-logo">
+      <h1 class="brand">WALZSHOP</h1>
+      <div class="brand-line" aria-hidden="true"></div>
     </header>
 
-    <!-- Main accordion -->
+    <!-- CONTENT (accordion) -->
     <main class="content" id="content">
 
       <!-- PAYMENT QRIS -->
-      <section class="item">
-        <button class="item-head" aria-expanded="false" data-target="qrisPanel">
-          <span class="icon">
-            <!-- QR icon -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-            </svg>
+      <article class="card">
+        <button class="card-head" data-target="panel-qris" aria-expanded="false">
+          <span class="left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
           </span>
           <span class="title">PAYMENT QRIS</span>
-          <span class="chev" aria-hidden>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <span class="chev" aria-hidden="true">
+            <svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
 
-        <div id="qrisPanel" class="item-body" aria-hidden="true">
-          <div class="qris-wrap">
+        <div id="panel-qris" class="card-body" aria-hidden="true">
+          <div class="divider"></div>
+          <div class="qris-box">
             <img id="qrisImg" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP" class="qris-img">
           </div>
-
-          <div class="controls">
-            <button class="btn" id="openQ">Perbesar Qris</button>
-            <button class="btn ghost" id="copyQ">Salin Link Qris</button>
+          <div class="body-actions">
+            <button class="pill btn-white" id="openQ">Perbesar Qris</button>
+            <button class="pill btn-ghost" id="copyQ">Copy Link Qris</button>
           </div>
         </div>
-      </section>
+      </article>
 
       <!-- PAYMENT DANA -->
-      <section class="item">
-        <button class="item-head" aria-expanded="false" data-target="danaPanel">
-          <span class="icon">
-            <!-- Wallet icon -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="2"></rect><path d="M16 3v4"></path></svg>
+      <article class="card">
+        <button class="card-head" data-target="panel-dana" aria-expanded="false">
+          <span class="left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M16 3v4"/></svg>
           </span>
           <span class="title">PAYMENT DANA</span>
-          <span class="chev" aria-hidden>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </span>
+          <span class="chev" aria-hidden="true"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
 
-        <div id="danaPanel" class="item-body" aria-hidden="true">
-          <div class="info">
-            <div class="row"><div class="label">Nama</div><div class="val">WALZEXPLOIT</div></div>
-            <div class="row"><div class="label">Nomor</div><div class="val" id="danaNum">082298902274</div></div>
-          </div>
-          <div class="controls single">
-            <button class="btn" id="copyDana">Copy Nomor</button>
+        <div id="panel-dana" class="card-body" aria-hidden="true">
+          <div class="divider"></div>
+          <div class="info-card">
+            <div class="info-row"><div class="label">Nama :</div><div class="value">WALZEXPLOIT</div></div>
+            <div class="info-row"><div class="label">Nomor :</div><div class="value" id="danaNum">082298902274</div></div>
+            <div class="body-actions single">
+              <button class="pill btn-white" id="copyDana"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="3" y="3" width="11" height="11" rx="2"/></svg> Copy Number</button>
+            </div>
           </div>
         </div>
-      </section>
+      </article>
 
       <!-- PAYMENT GOPAY -->
-      <section class="item">
-        <button class="item-head" aria-expanded="false" data-target="gopayPanel">
-          <span class="icon">
-            <!-- Pay icon -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M16 3v4"></path></svg>
+      <article class="card">
+        <button class="card-head" data-target="panel-gopay" aria-expanded="false">
+          <span class="left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 3v4"/></svg>
           </span>
           <span class="title">PAYMENT GOPAY</span>
-          <span class="chev" aria-hidden>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </span>
+          <span class="chev" aria-hidden="true"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
 
-        <div id="gopayPanel" class="item-body" aria-hidden="true">
-          <div class="info">
-            <div class="row"><div class="label">Nama</div><div class="val">TI** SUT***@</div></div>
-            <div class="row"><div class="label">Nomor</div><div class="val" id="gopayNum">082298902274</div></div>
-          </div>
-          <div class="controls single">
-            <button class="btn" id="copyGopay">Copy Nomor</button>
+        <div id="panel-gopay" class="card-body" aria-hidden="true">
+          <div class="divider"></div>
+          <div class="info-card">
+            <div class="info-row"><div class="label">Nama :</div><div class="value">TI** SUT***@</div></div>
+            <div class="info-row"><div class="label">Nomor :</div><div class="value" id="gopayNum">082298902274</div></div>
+            <div class="body-actions single">
+              <button class="pill btn-white" id="copyGopay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="9" width="11" height="11" rx="2"/><rect x="3" y="3" width="11" height="11" rx="2"/></svg> Copy Number</button>
+            </div>
           </div>
         </div>
-      </section>
+      </article>
 
       <!-- LAYANAN WALZ -->
-      <section class="item">
-        <button class="item-head" aria-expanded="false" data-target="layananPanel">
-          <span class="icon">
-            <!-- Box icon -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+      <article class="card">
+        <button class="card-head" data-target="panel-layanan" aria-expanded="false">
+          <span class="left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
           </span>
           <span class="title">LAYANAN WALZ</span>
-          <span class="chev" aria-hidden>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </span>
+          <span class="chev" aria-hidden="true"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
 
-        <div id="layananPanel" class="item-body" aria-hidden="true">
-          <ul class="list">
-            <li>Logo bebas request</li>
-            <li>Panel run bot 1GB - UNLI</li>
-            <li>Reseller panel & admin panel</li>
-            <li>Jasa pembuatan website</li>
-          </ul>
+        <div id="panel-layanan" class="card-body" aria-hidden="true">
+          <div class="divider"></div>
+          <div class="info-card">
+            <ul class="service-list">
+              <li>Logo bebas request</li>
+              <li>Panel run bot 1GB - UNLI</li>
+              <li>Reseller panel & admin panel</li>
+              <li>Jasa pembuatan website</li>
+            </ul>
+          </div>
         </div>
-      </section>
+      </article>
 
-      <!-- PRODUK PANEL (lengkap) -->
-      <section class="item">
-        <button class="item-head" aria-expanded="false" data-target="produkPanel">
-          <span class="icon">
-            <!-- Server icon -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="8" rx="2"></rect><rect x="3" y="13" width="18" height="8" rx="2"></rect></svg>
+      <!-- PRODUK PANEL -->
+      <article class="card">
+        <button class="card-head" data-target="panel-produk" aria-expanded="false">
+          <span class="left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/></svg>
           </span>
           <span class="title">PRODUK PANEL</span>
-          <span class="chev" aria-hidden>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </span>
+          <span class="chev" aria-hidden="true"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
 
-        <div id="produkPanel" class="item-body" aria-hidden="true">
+        <div id="panel-produk" class="card-body" aria-hidden="true">
+          <div class="divider"></div>
           <div class="produk-list">
             <div class="produk-title">PANEL PTERODACTYL</div>
             <ul>
@@ -156,11 +139,11 @@
             </ul>
           </div>
         </div>
-      </section>
+      </article>
 
     </main>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="f-brand">WALZSHOP</div>
@@ -169,137 +152,113 @@
     </footer>
   </div>
 
-  <!-- Toast -->
+  <!-- TOAST -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- Modal QRIS -->
+  <!-- MODAL -->
   <div id="modal" class="modal" aria-hidden="true">
     <div class="modal-inner" role="dialog" aria-modal="true">
-      <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS besar" id="modalImg">
+      <img id="modalImg" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS besar">
       <button class="btn close" id="closeModal">Tutup</button>
     </div>
   </div>
 
-  <!-- WA Admin floating -->
-  <a class="wa-btn" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank" rel="noopener" aria-label="Chat WA Admin">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"></path></svg>
+  <!-- WA BUTTON -->
+  <a class="wa-btn" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"/></svg>
     <span>WA Admin</span>
   </a>
 
   <script>
-    // Accordion: single open behavior
+    // Accordion single-open
     (function() {
-      const heads = document.querySelectorAll('.item-head');
+      const heads = document.querySelectorAll('.card-head');
       heads.forEach(h => {
         h.addEventListener('click', () => {
-          const targetId = h.getAttribute('data-target');
-          const body = document.getElementById(targetId);
-          const open = body.classList.contains('open');
+          const target = h.getAttribute('data-target');
+          const body = document.getElementById(target);
+          const isOpen = body.classList.contains('open');
 
-          // close all
-          document.querySelectorAll('.item-body.open').forEach(b => {
+          // close others
+          document.querySelectorAll('.card-body.open').forEach(b => {
             b.classList.remove('open');
-            b.setAttribute('aria-hidden', 'true');
-            const prevHead = b.previousElementSibling;
-            prevHead && prevHead.setAttribute('aria-expanded','false');
-            const chev = prevHead.querySelector('.chev');
-            if (chev) chev.style.transform = '';
+            b.setAttribute('aria-hidden','true');
+            const prev = b.previousElementSibling;
+            if(prev) prev.setAttribute('aria-expanded','false');
+            const chev = prev && prev.querySelector('.chev-svg');
+            if(chev) chev.style.transform = '';
           });
 
-          if (!open) {
+          if(!isOpen){
             body.classList.add('open');
             body.setAttribute('aria-hidden','false');
             h.setAttribute('aria-expanded','true');
-            const chev = h.querySelector('.chev');
-            if (chev) chev.style.transform = 'rotate(180deg)';
-            // scroll into view on small screens
-            if (window.innerWidth < 600) setTimeout(()=> body.scrollIntoView({behavior:'smooth', block:'center'}), 260);
+            const chev = h.querySelector('.chev-svg');
+            if(chev) chev.style.transform = 'rotate(180deg)';
+            if(window.innerWidth < 560) setTimeout(()=> body.scrollIntoView({behavior:'smooth', block:'center'}), 220);
           }
         });
-
-        h.addEventListener('keyup', (e) => { if (e.key === 'Enter' || e.key === ' ') h.click(); });
+        h.addEventListener('keyup', (e) => { if(e.key === 'Enter' || e.key === ' ') h.click(); });
       });
     })();
 
-    // Toast helper
+    // toast helper
     const toast = document.getElementById('toast');
-    let tTimer;
-    function showToast(msg) {
-      clearTimeout(tTimer);
+    let tt;
+    function showToast(msg){
+      clearTimeout(tt);
       toast.textContent = '✔︎ ' + msg;
       toast.classList.add('show');
-      tTimer = setTimeout(()=> toast.classList.remove('show'), 1600);
+      tt = setTimeout(()=> toast.classList.remove('show'), 1600);
     }
 
-    // Safe copy (clipboard + fallback)
-    async function safeCopy(text) {
+    // safe copy
+    async function safeCopy(text){
       try {
         await navigator.clipboard.writeText(text);
         return true;
-      } catch (e) {
-        try {
-          const ta = document.createElement('textarea');
-          ta.value = text;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          return true;
-        } catch (err) {
-          return false;
-        }
+      } catch(e) {
+        try { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); return true; }
+        catch(err){ return false; }
       }
     }
 
-    // Copy handlers
+    // copy handlers
     document.getElementById('copyDana').addEventListener('click', async () => {
       const v = document.getElementById('danaNum').textContent.trim();
-      if (await safeCopy(v)) showToast('Nomor DANA tersalin');
+      if(await safeCopy(v)) showToast('Nomor DANA tersalin');
       else alert('Gagal menyalin');
     });
     document.getElementById('copyGopay').addEventListener('click', async () => {
       const v = document.getElementById('gopayNum').textContent.trim();
-      if (await safeCopy(v)) showToast('Nomor GOPAY tersalin');
+      if(await safeCopy(v)) showToast('Nomor GOPAY tersalin');
       else alert('Gagal menyalin');
     });
     document.getElementById('copyQ').addEventListener('click', async () => {
-      const v = document.getElementById('qrisImg').src;
-      if (await safeCopy(v)) showToast('Link QRIS tersalin');
-      else alert('Gagal menyalin link');
+      const src = document.getElementById('qrisImg').src;
+      if(await safeCopy(src)) showToast('Link QRIS tersalin');
+      else alert('Gagal menyalin');
     });
 
-    // Modal open/close
+    // modal open/close
     const modal = document.getElementById('modal');
-    const openQ = document.getElementById('openQ');
-    const closeModal = document.getElementById('closeModal');
-    openQ.addEventListener('click', () => {
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
+    document.getElementById('openQ').addEventListener('click', () => {
+      modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
     });
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('show');
-      modal.setAttribute('aria-hidden','true');
-      document.body.style.overflow = 'auto';
+    document.getElementById('closeModal').addEventListener('click', () => {
+      modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='auto';
     });
-    modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow = 'auto'; } });
+    modal.addEventListener('click', (e)=> { if(e.target === modal){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='auto'; } });
 
-    // Simple loader fade (page paint)
+    // page show fade
     window.addEventListener('load', () => {
       document.querySelector('.page').style.opacity = '1';
     });
 
-    // Optional: open first panel (like example)
+    // open first panel by default
     document.addEventListener('DOMContentLoaded', () => {
-      const firstBody = document.querySelector('.item-body');
-      if (firstBody) {
-        firstBody.classList.add('open');
-        firstBody.setAttribute('aria-hidden','false');
-        const head = firstBody.previousElementSibling;
-        head && head.setAttribute('aria-expanded','true');
-        const chev = head.querySelector('.chev');
-        if (chev) chev.style.transform = 'rotate(180deg)';
-      }
+      const first = document.querySelector('.card-body');
+      if(first){ first.classList.add('open'); first.setAttribute('aria-hidden','false'); const head = first.previousElementSibling; head && head.setAttribute('aria-expanded','true'); const chev = head && head.querySelector('.chev-svg'); if(chev) chev.style.transform = 'rotate(180deg)'; }
     });
   </script>
 </body>

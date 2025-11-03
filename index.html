@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WALZSHOP — Final Deluxe (v11)</title>
+  <title>WALZSHOP — Final v12 Hybrid</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,12 +15,13 @@
 
   <!-- Loading screen (logo zoom + fade) -->
   <div id="loader" class="loader" aria-hidden="false">
-    <div class="loader-inner">
+    <div class="loader-inner" role="status" aria-live="polite">
       <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP" class="loader-logo">
       <div class="loader-line" aria-hidden="true"></div>
     </div>
   </div>
 
+  <!-- App -->
   <div id="app" class="app" aria-hidden="true">
     <header class="header">
       <div class="brand">
@@ -35,8 +36,9 @@
 
       <div class="tools">
         <button id="themeToggle" class="theme-toggle" aria-pressed="false" title="Toggle theme">
-          <!-- sun/moon icon (SVG) -->
-          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+          </svg>
         </button>
       </div>
     </header>
@@ -46,12 +48,17 @@
       <section class="card" data-key="qris">
         <button class="card-head" aria-expanded="false" data-target="qrisBody">
           <span class="icon" title="QRIS">
-            <!-- QR icon -->
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
           </span>
           <span class="title">PAYMENT QRIS</span>
           <span class="arrow" aria-hidden>
-            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </span>
         </button>
 
@@ -70,11 +77,16 @@
       <section class="card" data-key="dana">
         <button class="card-head" aria-expanded="false" data-target="danaBody">
           <span class="icon" title="DANA">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="2"></rect><path d="M16 3v4"></path></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="7" width="18" height="12" rx="2"></rect>
+              <path d="M16 3v4"></path>
+            </svg>
           </span>
           <span class="title">PAYMENT DANA</span>
           <span class="arrow" aria-hidden>
-            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </span>
         </button>
 
@@ -91,11 +103,16 @@
       <section class="card" data-key="gopay">
         <button class="card-head" aria-expanded="false" data-target="gopayBody">
           <span class="icon" title="GOPAY">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M16 3v4"></path></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <path d="M16 3v4"></path>
+            </svg>
           </span>
           <span class="title">PAYMENT GOPAY</span>
           <span class="arrow" aria-hidden>
-            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </span>
         </button>
 
@@ -112,11 +129,15 @@
       <section class="card" data-key="layanan">
         <button class="card-head" aria-expanded="false" data-target="layananBody">
           <span class="icon" title="Layanan">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            </svg>
           </span>
           <span class="title">LAYANAN WALZ</span>
           <span class="arrow" aria-hidden>
-            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </span>
         </button>
 
@@ -134,11 +155,16 @@
       <section class="card" data-key="produk">
         <button class="card-head" aria-expanded="false" data-target="produkBody">
           <span class="icon" title="Produk">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="8" rx="2"></rect><rect x="3" y="13" width="18" height="8" rx="2"></rect></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="8" rx="2"></rect>
+              <rect x="3" y="13" width="18" height="8" rx="2"></rect>
+            </svg>
           </span>
           <span class="title">PRODUK PANEL</span>
           <span class="arrow" aria-hidden>
-            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </span>
         </button>
 
@@ -182,14 +208,14 @@
 
   <!-- WA floating -->
   <a class="wa" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank" rel="noopener" aria-label="Chat WA WALZSHOP">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"></path></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"></path></svg>
     <span>WA Admin</span>
   </a>
 
   <!-- Scripts -->
   <script>
   (function(){
-    // Loading sequence: show loader, then reveal app
+    /* Loader sequence */
     const loader = document.getElementById('loader');
     const app = document.getElementById('app');
     function hideLoader() {
@@ -199,52 +225,59 @@
         app.setAttribute('aria-hidden','false');
       }, 420);
     }
-    // simulate short startup then hide loader
     document.addEventListener('DOMContentLoaded', () => {
-      // small delay so animation visible
-      setTimeout(hideLoader, 800);
+      // short visible delay for animation
+      setTimeout(hideLoader, 850);
     });
 
-    // Theme toggle (light <-> dark glass)
+    /* Theme toggle with smooth transition */
     const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
     const root = document.documentElement;
     function applyTheme(name){
-      if(name==='dark'){ root.setAttribute('data-theme','dark'); themeToggle.setAttribute('aria-pressed','true'); }
-      else { root.removeAttribute('data-theme'); themeToggle.setAttribute('aria-pressed','false'); }
+      if(name === 'dark') {
+        root.setAttribute('data-theme','dark');
+        themeToggle.setAttribute('aria-pressed','true');
+      } else {
+        root.removeAttribute('data-theme');
+        themeToggle.setAttribute('aria-pressed','false');
+      }
       localStorage.setItem('walz_theme', name);
+      // small repaint animation
+      root.style.transition = 'background-color .36s ease, color .36s ease';
+      setTimeout(()=> root.style.transition = '', 420);
     }
-    // init
-    const saved = localStorage.getItem('walz_theme') || 'light';
-    applyTheme(saved);
-    themeToggle.addEventListener('click', ()=> applyTheme((localStorage.getItem('walz_theme')==='dark')? 'light':'dark'));
+    const savedTheme = localStorage.getItem('walz_theme') || 'light';
+    applyTheme(savedTheme);
+    themeToggle.addEventListener('click', ()=> {
+      const current = localStorage.getItem('walz_theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(current);
+    });
 
-    // Accordion single-open behavior + arrow rotate
-    const cardHeads = document.querySelectorAll('.card-head');
-    cardHeads.forEach(head => {
+    /* Accordion: single open + arrow rotate + keyboard */
+    const cards = document.querySelectorAll('.card');
+    document.querySelectorAll('.card-head').forEach(head => {
       head.addEventListener('click', () => {
-        const parentCard = head.closest('.card');
-        const isOpen = parentCard.classList.contains('open');
+        const parent = head.closest('.card');
+        const open = parent.classList.contains('open');
         // close others
-        document.querySelectorAll('.card.open').forEach(c => {
+        cards.forEach(c => {
           c.classList.remove('open');
           c.querySelector('.card-head').setAttribute('aria-expanded','false');
           const ch = c.querySelector('.chev');
-          if(ch) ch.style.transform='';
+          if(ch) ch.style.transform = '';
         });
-        if(!isOpen){
-          parentCard.classList.add('open');
+        if(!open) {
+          parent.classList.add('open');
           head.setAttribute('aria-expanded','true');
           const chev = head.querySelector('.chev');
-          if(chev) chev.style.transform='rotate(180deg)';
-          // scroll into view on small screens for better UX
-          if(window.innerWidth < 600) parentCard.scrollIntoView({behavior:'smooth',block:'center'});
+          if(chev) chev.style.transform = 'rotate(180deg)';
+          if(window.innerWidth < 560) parent.scrollIntoView({behavior:'smooth', block:'center'});
         }
       });
-      head.addEventListener('keyup', (e)=> { if(e.key==='Enter' || e.key===' ') head.click(); });
+      head.addEventListener('keyup', (e)=> { if(e.key === 'Enter' || e.key === ' ') head.click(); });
     });
 
-    // Toast helper
+    /* Toast helper */
     const toast = document.getElementById('toast');
     let toastTimer;
     function showToast(msg){
@@ -254,52 +287,60 @@
       toastTimer = setTimeout(()=> toast.classList.remove('show'), 1600);
     }
 
-    // safe copy with fallback
+    /* safe copy with fallback */
     async function safeCopy(text){
-      try { await navigator.clipboard.writeText(text); return true; }
-      catch(e){
-        try { const ta = document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); return true; }
-        catch(err){ return false; }
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch(e) {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          return true;
+        } catch(err) {
+          return false;
+        }
       }
     }
 
-    // Copy handlers
-    const copyDanaBtn = document.getElementById('copyDana');
-    const copyGopayBtn = document.getElementById('copyGopay');
-    const copyQBtn = document.getElementById('copyQ');
-    copyDanaBtn?.addEventListener('click', async ()=> {
+    /* copy handlers */
+    document.getElementById('copyDana')?.addEventListener('click', async () => {
       const v = document.getElementById('danaNum').textContent.trim();
       if(await safeCopy(v)) showToast('Nomor DANA tersalin'); else alert('Gagal menyalin');
     });
-    copyGopayBtn?.addEventListener('click', async ()=> {
+    document.getElementById('copyGopay')?.addEventListener('click', async () => {
       const v = document.getElementById('gopayNum').textContent.trim();
       if(await safeCopy(v)) showToast('Nomor GOPAY tersalin'); else alert('Gagal menyalin');
     });
-    copyQBtn?.addEventListener('click', async ()=> {
+    document.getElementById('copyQ')?.addEventListener('click', async () => {
       const v = document.getElementById('qrisImg').src;
       if(await safeCopy(v)) showToast('Link QRIS tersalin'); else alert('Gagal menyalin link');
     });
 
-    // Modal open/close
+    /* Modal open/close */
     const modal = document.getElementById('modal');
     const openQ = document.getElementById('openQ');
     const closeModal = document.getElementById('closeModal');
-    openQ?.addEventListener('click', ()=> {
+    openQ?.addEventListener('click', () => {
       modal.classList.add('show');
       modal.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
     });
-    closeModal?.addEventListener('click', ()=> {
+    closeModal?.addEventListener('click', () => {
       modal.classList.remove('show');
       modal.setAttribute('aria-hidden','true');
       document.body.style.overflow = 'auto';
     });
-    modal?.addEventListener('click', (e)=> { if(e.target === modal){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow = 'auto'; } });
+    modal?.addEventListener('click', (e)=> { if(e.target === modal){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='auto'; } });
 
-    // ensure first card open on load
+    /* open first card */
     (function initOpen(){
-      const firstCard = document.querySelector('.card');
-      if(firstCard){ firstCard.classList.add('open'); firstCard.querySelector('.card-head').setAttribute('aria-expanded','true'); const chev = firstCard.querySelector('.chev'); if(chev) chev.style.transform='rotate(180deg)'; }
+      const first = document.querySelector('.card');
+      if(first){ first.classList.add('open'); first.querySelector('.card-head').setAttribute('aria-expanded','true'); const chev = first.querySelector('.chev'); if(chev) chev.style.transform='rotate(180deg)'; }
     })();
 
   })();

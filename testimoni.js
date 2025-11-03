@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // ================================================================
     
     const testimonialImageLinks = [
-        "https://via.placeholder.com/300x533.png?text=Testi+1",
+        "https://files.catbox.moe/5ol19p.jpg?text=Testi+1",
         "https://via.placeholder.com/300x533.png?text=Testi+2",
         "https://via.placeholder.com/300x533.png?text=Testi+3",
         "https://via.placeholder.com/300x533.png?text=Testi+4",

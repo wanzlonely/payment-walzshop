@@ -8,11 +8,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="loading-overlay show">
+  <div class="loading-overlay show" id="loadingOverlay">
     <div class="loading-inner">
-      <div class="dino-track">
-        <img class="dino" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Dinosaur_footprint_white.png" alt="Dino">
-      </div>
+      <div class="loader" aria-hidden="true"></div>
       <div class="loading-text">Loading WALZSHOP...</div>
     </div>
   </div>
@@ -22,15 +20,21 @@
       <h1>TESTIMONI WALZSHOP</h1>
       <p class="sub">100+ testimoni pelanggan terpercaya</p>
     </div>
-    <div id="testiGrid" class="grid"></div>
-    <div class="pager">
-      <button id="prevBtn" class="pager-btn">Prev</button>
-      <span id="pageInfo" class="page-indicator"></span>
-      <button id="nextBtn" class="pager-btn">Next</button>
-    </div>
-    <div class="testi-foot">
-      <a href="index.html" class="back-link">← Kembali ke WALZSHOP</a>
-    </div>
+
+    <main>
+      <div id="testiGrid" class="grid" aria-live="polite"></div>
+
+      <div class="pager" style="text-align:center;margin-top:18px;">
+        <button id="prevBtn" class="pager-btn">Prev</button>
+        <span id="pageInfo" class="page-indicator" style="margin:0 12px;">Page 1</span>
+        <button id="nextBtn" class="pager-btn">Next</button>
+      </div>
+
+      <div style="text-align:center;margin-top:22px;">
+        <a class="back-link" href="index.html">← Kembali ke WALZSHOP</a>
+      </div>
+    </main>
+
   </div>
 
   <script src="script.js"></script>

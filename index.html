@@ -3,30 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WALZSHOP — Official Payment & Services</title>
+  <title>WALZSHOP — Glossy Modern UI</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
 
+  <div class="container">
     <header>
-      <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP" class="logo">
+      <img src="https://files.catbox.moe/hrtpys.jpg" alt="Logo WALZSHOP" class="logo">
       <h1>WALZSHOP</h1>
+      <p>Official • Top up • Panel • Website Services</p>
     </header>
 
     <section class="menu">
 
       <!-- QRIS -->
-      <div class="menu-item" onclick="toggleCard('qrisCard')">💳 PAYMENT QRIS</div>
+      <div class="menu-item" onclick="toggleCard('qrisCard')">
+        <span>💳 PAYMENT QRIS</span>
+        <span class="arrow">↓</span>
+      </div>
       <div id="qrisCard" class="card">
         <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS" class="qris">
-        <button class="btn" onclick="openModal()">Perbesar Qris</button>
-        <button class="btn ghost" id="copyQris">Copy Link QRIS</button>
+        <div class="btn-row">
+          <button class="btn" onclick="openModal()">Perbesar QRIS</button>
+          <button class="btn ghost" id="copyQris">Copy Link QRIS</button>
+        </div>
       </div>
 
       <!-- DANA -->
-      <div class="menu-item" onclick="toggleCard('danaCard')">💼 PAYMENT DANA</div>
+      <div class="menu-item" onclick="toggleCard('danaCard')">
+        <span>💼 PAYMENT DANA</span>
+        <span class="arrow">↓</span>
+      </div>
       <div id="danaCard" class="card">
         <p><b>Nama:</b> WALZEXPLOIT</p>
         <p><b>Nomor:</b> <span id="danaNum">082298902274</span></p>
@@ -34,7 +43,10 @@
       </div>
 
       <!-- GOPAY -->
-      <div class="menu-item" onclick="toggleCard('gopayCard')">💠 PAYMENT GOPAY</div>
+      <div class="menu-item" onclick="toggleCard('gopayCard')">
+        <span>💠 PAYMENT GOPAY</span>
+        <span class="arrow">↓</span>
+      </div>
       <div id="gopayCard" class="card">
         <p><b>Nama:</b> TI** SUT***@</p>
         <p><b>Nomor:</b> <span id="gopayNum">082298902274</span></p>
@@ -42,9 +54,11 @@
       </div>
 
       <!-- LAYANAN -->
-      <div class="menu-item" onclick="toggleCard('layananCard')">📦 LAYANAN WALZ</div>
+      <div class="menu-item" onclick="toggleCard('layananCard')">
+        <span>📦 LAYANAN WALZ</span>
+        <span class="arrow">↓</span>
+      </div>
       <div id="layananCard" class="card">
-        <p>WALZSHOP melayani:</p>
         <ul>
           <li>Logo bebas request</li>
           <li>Panel run bot 1GB - UNLI</li>
@@ -54,7 +68,10 @@
       </div>
 
       <!-- PRODUK PANEL -->
-      <div class="menu-item" onclick="toggleCard('produkCard')">🗄️ PRODUK PANEL</div>
+      <div class="menu-item" onclick="toggleCard('produkCard')">
+        <span>🗄️ PRODUK PANEL</span>
+        <span class="arrow">↓</span>
+      </div>
       <div id="produkCard" class="card">
         <ul>
           <li>RAM 1GB : Rp1.000</li>
@@ -90,17 +107,20 @@
   <a class="wa" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank">💬 WA Admin</a>
 
   <script>
+    // Toggle card
     function toggleCard(id) {
       const card = document.getElementById(id);
-      card.classList.toggle('active');
+      const arrow = card.previousElementSibling.querySelector(".arrow");
+      card.classList.toggle("active");
+      arrow.classList.toggle("rotate");
     }
 
-    // Copy text
+    // Copy function
     const popup = document.getElementById('popup');
     function showPopup(msg) {
       popup.textContent = msg;
       popup.classList.add('show');
-      setTimeout(() => popup.classList.remove('show'), 1500);
+      setTimeout(() => popup.classList.remove('show'), 1600);
     }
 
     async function copyText(txt) {
@@ -119,19 +139,20 @@
     }
 
     document.getElementById('copyDana').onclick = async () => {
-      const t = document.getElementById('danaNum').textContent;
-      if (await copyText(t)) showPopup('Nomor DANA tersalin');
+      if (await copyText(document.getElementById('danaNum').textContent))
+        showPopup('Nomor DANA tersalin!');
     };
     document.getElementById('copyGopay').onclick = async () => {
-      const t = document.getElementById('gopayNum').textContent;
-      if (await copyText(t)) showPopup('Nomor GOPAY tersalin');
+      if (await copyText(document.getElementById('gopayNum').textContent))
+        showPopup('Nomor GOPAY tersalin!');
     };
     document.getElementById('copyQris').onclick = async () => {
-      const t = "https://files.catbox.moe/pa0iwo.png";
-      if (await copyText(t)) showPopup('Link QRIS tersalin');
+      const qrisLink = "https://files.catbox.moe/pa0iwo.png";
+      if (await copyText(qrisLink))
+        showPopup('Link QRIS tersalin!');
     };
 
-    // Modal QRIS
+    // Modal
     const modal = document.getElementById('modal');
     function openModal() { modal.classList.add('show'); }
     function closeModal() { modal.classList.remove('show'); }

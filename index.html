@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WALZSHOP — Official</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WALZSHOP — Official Payment & Services</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <div class="container">
+
     <header>
-      <img src="https://files.catbox.moe/hrtpys.jpg" alt="Logo" class="logo" />
+      <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP" class="logo">
       <h1>WALZSHOP</h1>
     </header>
 
     <section class="menu">
+
+      <!-- QRIS -->
       <div class="menu-item" onclick="toggleCard('qrisCard')">💳 PAYMENT QRIS</div>
       <div id="qrisCard" class="card">
-        <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS" class="qris" />
-        <button class="btn" onclick="enlargeQR()">Perbesar Qris</button>
-        <button class="btn ghost" id="copyQris">Copy Link</button>
+        <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS" class="qris">
+        <button class="btn" onclick="openModal()">Perbesar Qris</button>
+        <button class="btn ghost" id="copyQris">Copy Link QRIS</button>
       </div>
 
+      <!-- DANA -->
       <div class="menu-item" onclick="toggleCard('danaCard')">💼 PAYMENT DANA</div>
       <div id="danaCard" class="card">
         <p><b>Nama:</b> WALZEXPLOIT</p>
@@ -30,6 +33,7 @@
         <button class="btn" id="copyDana">Copy Nomor</button>
       </div>
 
+      <!-- GOPAY -->
       <div class="menu-item" onclick="toggleCard('gopayCard')">💠 PAYMENT GOPAY</div>
       <div id="gopayCard" class="card">
         <p><b>Nama:</b> TI** SUT***@</p>
@@ -37,6 +41,7 @@
         <button class="btn" id="copyGopay">Copy Nomor</button>
       </div>
 
+      <!-- LAYANAN -->
       <div class="menu-item" onclick="toggleCard('layananCard')">📦 LAYANAN WALZ</div>
       <div id="layananCard" class="card">
         <p>WALZSHOP melayani:</p>
@@ -48,6 +53,7 @@
         </ul>
       </div>
 
+      <!-- PRODUK PANEL -->
       <div class="menu-item" onclick="toggleCard('produkCard')">🗄️ PRODUK PANEL</div>
       <div id="produkCard" class="card">
         <ul>
@@ -63,6 +69,7 @@
           <li>RAM UNLI : Rp10.000</li>
         </ul>
       </div>
+
     </section>
 
     <footer>
@@ -72,12 +79,23 @@
 
   <div id="popup">✔️ Tersalin</div>
 
+  <!-- Modal QRIS -->
+  <div id="modal" class="modal">
+    <div class="modal-box">
+      <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS Zoom">
+      <button class="btn" onclick="closeModal()">Tutup</button>
+    </div>
+  </div>
+
+  <a class="wa" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank">💬 WA Admin</a>
+
   <script>
     function toggleCard(id) {
       const card = document.getElementById(id);
       card.classList.toggle('active');
     }
 
+    // Copy text
     const popup = document.getElementById('popup');
     function showPopup(msg) {
       popup.textContent = msg;
@@ -85,13 +103,13 @@
       setTimeout(() => popup.classList.remove('show'), 1500);
     }
 
-    async function copyText(text) {
+    async function copyText(txt) {
       try {
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(txt);
         return true;
       } catch {
         const area = document.createElement('textarea');
-        area.value = text;
+        area.value = txt;
         document.body.appendChild(area);
         area.select();
         document.execCommand('copy');
@@ -112,7 +130,12 @@
       const t = "https://files.catbox.moe/pa0iwo.png";
       if (await copyText(t)) showPopup('Link QRIS tersalin');
     };
-  </script>
 
+    // Modal QRIS
+    const modal = document.getElementById('modal');
+    function openModal() { modal.classList.add('show'); }
+    function closeModal() { modal.classList.remove('show'); }
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  </script>
 </body>
 </html>

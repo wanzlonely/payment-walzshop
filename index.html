@@ -3,157 +3,136 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WALZSHOP — Dark Prime</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>WALZSHOP — Official Panel & Payment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app-shell">
-    <header class="hero" role="banner">
-      <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP" class="logo">
+    <header class="hero">
+      <img src="https://files.catbox.moe/hrtpys.jpg" alt="Logo WALZSHOP" class="logo">
       <h1 class="site-title">WALZSHOP</h1>
-      <div class="bar" aria-hidden="true"></div>
+      <div class="bar"></div>
     </header>
 
-    <main class="main" role="main">
-      <section class="accordion" aria-label="Layanan WALZSHOP">
-        <!-- (cards same as before) -->
+    <main>
+      <section class="accordion">
         <!-- QRIS -->
         <article class="card">
-          <button class="card-head" data-target="panel-qris" aria-expanded="false" type="button">
-            <span class="svg-wrap" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          <button class="card-head" data-target="panel-qris" aria-expanded="false">
+            <span class="svg-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
+                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>
+              </svg>
             </span>
             <span class="head-title">PAYMENT QRIS</span>
-            <span class="chev" aria-hidden="true"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            <span class="chev"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div id="panel-qris" class="card-body" aria-hidden="true">
             <div class="divider"></div>
-            <div class="qris-center"><img id="qrisImg" class="qris" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP"></div>
-            <div class="card-actions"><button class="btn primary" id="openQ" type="button">Perbesar QRIS</button></div>
+            <img class="qris" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP">
+            <div class="card-actions"><button class="btn primary" id="openQ">Perbesar QRIS</button></div>
           </div>
         </article>
 
         <!-- DANA -->
         <article class="card">
-          <button class="card-head" data-target="panel-dana" aria-expanded="false" type="button">
-            <span class="svg-wrap" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2" y="7" width="20" height="12" rx="2"></rect><path d="M16 3v4"></path></svg></span>
+          <button class="card-head" data-target="panel-dana" aria-expanded="false">
+            <span class="svg-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2" y="7" width="20" height="12" rx="2"/><path d="M16 3v4"/></svg></span>
             <span class="head-title">PAYMENT DANA</span>
-            <span class="chev" aria-hidden="true"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            <span class="chev"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div id="panel-dana" class="card-body" aria-hidden="true">
             <div class="divider"></div>
-            <div class="info"><div class="row"><div class="label">Nama</div><div class="value">WALZEXPLOIT</div></div><div class="row"><div class="label">Nomor</div><div class="value" id="danaNum">082298902274</div></div></div>
-            <div class="card-actions"><button class="btn primary" id="copyDana" type="button">Copy Nomor</button></div>
+            <div class="info">
+              <div class="row"><div class="label">Nama</div><div class="value">WALZEXPLOIT</div></div>
+              <div class="row"><div class="label">Nomor</div><div class="value" id="danaNum">082298902274</div></div>
+            </div>
+            <div class="card-actions"><button class="btn primary" id="copyDana">Copy Nomor</button></div>
           </div>
         </article>
 
         <!-- GOPAY -->
         <article class="card">
-          <button class="card-head" data-target="panel-gopay" aria-expanded="false" type="button">
-            <span class="svg-wrap" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M7 10h6"></path></svg></span>
+          <button class="card-head" data-target="panel-gopay" aria-expanded="false">
+            <span class="svg-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M7 10h6"/></svg></span>
             <span class="head-title">PAYMENT GOPAY</span>
-            <span class="chev" aria-hidden="true"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            <span class="chev"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div id="panel-gopay" class="card-body" aria-hidden="true">
             <div class="divider"></div>
-            <div class="info"><div class="row"><div class="label">Nama</div><div class="value">TI** SUT***@</div></div><div class="row"><div class="label">Nomor</div><div class="value" id="gopayNum">082298902274</div></div></div>
-            <div class="card-actions"><button class="btn primary" id="copyGopay" type="button">Copy Nomor</button></div>
+            <div class="info">
+              <div class="row"><div class="label">Nama</div><div class="value">TI** SUT***@</div></div>
+              <div class="row"><div class="label">Nomor</div><div class="value" id="gopayNum">082298902274</div></div>
+            </div>
+            <div class="card-actions"><button class="btn primary" id="copyGopay">Copy Nomor</button></div>
           </div>
         </article>
 
-        <!-- PRODUK PANEL -->
+        <!-- PRODUK -->
         <article class="card">
-          <button class="card-head" data-target="panel-produk" aria-expanded="false" type="button">
-            <span class="svg-wrap" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="18" height="6" rx="2"/><rect x="3" y="11" width="18" height="6" rx="2"/><rect x="3" y="19" width="18" height="2" rx="1"/></svg></span>
+          <button class="card-head" data-target="panel-produk" aria-expanded="false">
+            <span class="svg-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="18" height="6" rx="2"/><rect x="3" y="11" width="18" height="6" rx="2"/><rect x="3" y="19" width="18" height="2" rx="1"/></svg></span>
             <span class="head-title">PRODUK PANEL</span>
-            <span class="chev" aria-hidden="true"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+            <span class="chev"><svg class="chev-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div id="panel-produk" class="card-body" aria-hidden="true">
             <div class="divider"></div>
-            <div class="produk"><div class="produk-title">PANEL PTERODACTYL</div>
-              <ul><li>RAM 1GB : Rp1.000</li><li>RAM 2GB : Rp2.000</li><li>RAM 3GB : Rp3.000</li><li>RAM 4GB : Rp4.000</li><li>RAM 5GB : Rp5.000</li><li>RAM 6GB : Rp6.000</li><li>RAM 7GB : Rp7.000</li><li>RAM 8GB : Rp8.000</li><li>RAM 9GB : Rp9.000</li><li>RAM UNLI : Rp10.000</li></ul>
+            <div class="produk">
+              <div class="produk-title">PANEL PTERODACTYL</div>
+              <ul>
+                <li>RAM 1GB : Rp1.000</li><li>RAM 2GB : Rp2.000</li><li>RAM 3GB : Rp3.000</li><li>RAM 4GB : Rp4.000</li>
+                <li>RAM 5GB : Rp5.000</li><li>RAM 6GB : Rp6.000</li><li>RAM 7GB : Rp7.000</li><li>RAM 8GB : Rp8.000</li>
+                <li>RAM 9GB : Rp9.000</li><li>RAM UNLI : Rp10.000</li>
+              </ul>
             </div>
           </div>
         </article>
-
       </section>
     </main>
 
-    <footer class="footer" role="contentinfo">
-      <div class="foot-inner"><div class="brand-foot">WALZSHOP</div><div class="note">Designed &amp; Developed by WALZSHOP © 2025</div></div>
+    <footer class="footer">
+      <div class="foot-inner">
+        <div class="brand-foot">WALZSHOP</div>
+        <div class="note">Designed & Developed by WALZSHOP © 2025</div>
+      </div>
     </footer>
   </div>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="toast" class="toast"></div>
 
-  <div id="modal" class="modal" aria-hidden="true"><div class="modal-card"><img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS besar"><button class="btn close" id="closeModal" type="button">Tutup</button></div></div>
+  <div id="modal" class="modal">
+    <div class="modal-card">
+      <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS besar">
+      <button class="btn close" id="closeModal">Tutup</button>
+    </div>
+  </div>
 
-  <!-- Floating Buttons -->
   <div class="floating">
-    <a class="fab wa" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank" rel="noopener" aria-label="WhatsApp">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"/></svg>
-    </a>
-
-    <a class="fab tg" href="https://t.me/walzdevnew" target="_blank" rel="noopener" aria-label="Telegram">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
-    </a>
-
-    <a class="fab testi" id="testiFab" href="/testimoni.html" aria-label="Testimoni WALZSHOP">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    </a>
-
-    <!-- hint bubble (hidden then animate) -->
-    <div id="testiHint" class="hint-bubble" aria-hidden="true">Lihat Testimoni Pelanggan 👇</div>
+    <a class="fab wa" href="https://wa.me/6282298902274" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 12.08a9 9 0 10-2.68 6.22L21 21l-1.66-4.83A8.99 8.99 0 0021 12.08z"/></svg></a>
+    <a class="fab tg" href="https://t.me/walzdevnew" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg></a>
+    <a class="fab testi" id="testiFab" href="testimoni.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+    <div id="testiHint" class="hint-bubble">Lihat Testimoni Pelanggan 👇</div>
   </div>
 
   <script>
-    // local UI script for index: run hint bubble once on load
-    (function(){
-      // show hint for 2200ms after 800ms delay
-      const hint = document.getElementById('testiHint');
-      const fab = document.getElementById('testiFab');
-      if(hint && fab){
-        setTimeout(()=> {
-          hint.classList.add('show');
-          setTimeout(()=> hint.classList.remove('show'), 2200);
-        }, 800);
-      }
-
-      // accordion behavior (same as before)
-      const heads = document.querySelectorAll('.card-head');
-      heads.forEach(h => {
-        h.addEventListener('click', () => {
-          const id = h.dataset.target;
-          const body = document.getElementById(id);
-          const isOpen = body && body.classList.contains('open');
-          document.querySelectorAll('.card-body.open').forEach(b => {
-            b.classList.remove('open'); b.setAttribute('aria-hidden','true');
-            const prev = b.previousElementSibling; if(prev) prev.setAttribute('aria-expanded','false');
-            const chevSvg = prev && prev.querySelector('.chev-svg'); if(chevSvg) chevSvg.style.transform = '';
-          });
-          if(body && !isOpen){ body.classList.add('open'); body.setAttribute('aria-hidden','false'); h.setAttribute('aria-expanded','true');
-            const chevSvg = h.querySelector('.chev-svg'); if(chevSvg) chevSvg.style.transform = 'rotate(180deg)'; if(window.innerWidth<560) setTimeout(()=> body.scrollIntoView({behavior:'smooth',block:'center'}),260);
-          }
-        });
-      });
-
-      // copy buttons / modal
-      const toast = document.getElementById('toast');
-      let toastTimer;
-      function showToast(txt){ clearTimeout(toastTimer); toast.textContent = '✔︎ ' + txt; toast.classList.add('show'); toastTimer=setTimeout(()=>toast.classList.remove('show'),1500); }
-      async function safeCopy(text){ try{ await navigator.clipboard.writeText(text); return true; }catch{ try{ const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); return true;}catch{return false;} } }
-
-      document.getElementById('copyDana')?.addEventListener('click', async () => { const v=document.getElementById('danaNum').textContent.trim(); showToast(await safeCopy(v)?'Nomor DANA tersalin':'Gagal menyalin'); });
-      document.getElementById('copyGopay')?.addEventListener('click', async () => { const v=document.getElementById('gopayNum').textContent.trim(); showToast(await safeCopy(v)?'Nomor GOPAY tersalin':'Gagal menyalin'); });
-
-      const modal = document.getElementById('modal');
-      document.getElementById('openQ')?.addEventListener('click', ()=>{ modal.classList.add('show'); document.body.style.overflow='hidden'; });
-      document.getElementById('closeModal')?.addEventListener('click', ()=>{ modal.classList.remove('show'); document.body.style.overflow='auto'; });
-      modal?.addEventListener('click', (e)=> { if(e.target===modal){ modal.classList.remove('show'); document.body.style.overflow='auto'; } });
-
-      window.addEventListener('load', ()=> { document.querySelector('.app-shell').style.opacity='1'; });
-    })();
+  const hint=document.getElementById('testiHint');
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{hint.classList.add('show');},600);
+    setTimeout(()=>{hint.classList.remove('show');},2800);
+  });
+  const cards=document.querySelectorAll('.card-head');
+  cards.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const target=document.getElementById(btn.dataset.target);
+      const open=target.classList.contains('open');
+      document.querySelectorAll('.card-body.open').forEach(e=>{e.classList.remove('open');});
+      if(!open)target.classList.add('open');
+    });
+  });
+  const copy=(id)=>navigator.clipboard.writeText(document.getElementById(id).innerText);
+  document.getElementById('copyDana').onclick=()=>copy('danaNum');
+  document.getElementById('copyGopay').onclick=()=>copy('gopayNum');
   </script>
 </body>
 </html>

@@ -1,0 +1,134 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #121212;
+    --card-color: #1e1e1e;
+    --primary-text: #ffffff;
+    --secondary-text: #b0b0b0;
+    --accent-color: #4a90e2;
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text);
+    padding: 15px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-text);
+    text-decoration: none;
+    font-size: 1rem;
+    background-color: var(--card-color);
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+    background-color: #2a2a2a;
+}
+
+.back-btn i {
+    margin-right: 6px;
+}
+
+/* Grid untuk Kotak Poster */
+.testimoni-grid {
+    display: grid;
+    /* 3 kolom di desktop, 2 di tablet, 1 di HP */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+/* Ini adalah KARTU yang dimodifikasi untuk keamanan */
+.testimoni-card {
+    background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    aspect-ratio: 9 / 16; /* Rasio poster */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    /* Properti untuk menampilkan gambar sebagai background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.testimoni-card:hover {
+    transform: scale(1.03);
+}
+
+/* Placeholder saat gambar tidak ada */
+.testimoni-card .placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    color: var(--secondary-text);
+    font-size: 1.2rem;
+}
+
+
+/* Pagination Controls */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.pagination-controls button {
+    background-color: var(--card-color);
+    color: var(--primary-text);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pagination-controls button:hover {
+    background-color: #2a2a2a;
+}
+
+.pagination-controls button:disabled {
+    background-color: #1a1a1a;
+    color: #444;
+    cursor: not-allowed;
+}
+
+.pagination-controls .page-number {
+    padding: 10px 15px;
+    font-weight: 600;
+}

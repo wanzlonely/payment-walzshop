@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", function() {
     // ================================================================
     
     const testimonialImageLinks = [
-        "https://files.catbox.moe/5ol19p.jpg?text=Testi+1",
-        "https://via.placeholder.com/300x533.png?text=Testi+2",
-        "https://via.placeholder.com/300x533.png?text=Testi+3",
-        "https://via.placeholder.com/300x533.png?text=Testi+4",
-        "https://via.placeholder.com/300x533.png?text=Testi+5",
-        "https://via.placeholder.com/300x533.png?text=Testi+6",
-        "https://via.placeholder.com/300x533.png?text=Testi+7",
-        "https://via.placeholder.com/300x533.png?text=Testi+8",
-        "https://via.placeholder.com/300x533.png?text=Testi+9",
+        "https://files.catbox.moe/r5fm53.jpg?text=Testi+1",
+        "https://files.catbox.moe/lzoaua.jpg?text=Testi+2",
+        "https://files.catbox.moe/o8a2z5.jpg?text=Testi+3",
+        "https://files.catbox.moe/x6cq8m.jpg?text=Testi+4",
+        "https://files.catbox.moe/zh5fka.jpg?text=Testi+5",
+        "https://files.catbox.moe/li8vsg.jpg?text=Testi+6",
+        "https://files.catbox.moe/5du1cx.jpg?text=Testi+7",
+        "https://files.catbox.moe/rwrjmt.jpg?text=Testi+8",
+        "https://files.catbox.moe/53ty1u.jpg?text=Testi+9",
         "https://via.placeholder.com/300x533.png?text=Testi+10",
         "https://via.placeholder.com/300x533.png?text=Testi+11",
         "https://via.placeholder.com/300x533.png?text=Testi+12"

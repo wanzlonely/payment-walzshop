@@ -1,38 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TESTIMONI WALZSHOP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Testimoni — WALZSHOP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;background:radial-gradient(circle at top,#0f0f0f,#000);color:#fff;font-family:'Poppins',sans-serif;padding:18px}
+    h1{text-align:center;margin:6px 0 16px}
+    .card{background:linear-gradient(180deg,#111,#0d0d0d);padding:14px;border-radius:12px;margin-bottom:12px;box-shadow:0 8px 28px rgba(0,0,0,0.6)}
+    .name{font-weight:700;margin-bottom:6px}
+    .back{display:block;margin:18px auto 40px;padding:10px 14px;border-radius:10px;background:#161616;text-align:center;text-decoration:none;color:#fff;width:160px}
+    .empty{color:#a9a9a9;text-align:center;padding:20px}
+  </style>
 </head>
 <body>
-  <div id="globalLoader" class="loading-overlay show" aria-hidden="false">
-    <div class="loading-inner">
-      <div class="loader" aria-hidden="true"></div>
-      <div class="loading-text">Loading WALZSHOP...</div>
-    </div>
+  <h1>💬 Testimoni Pelanggan</h1>
+
+  <div class="card">
+    <div class="name">Rizky</div>
+    <div class="msg">Pelayanan cepat banget, trusted! Barang sampai aman dan lengkap.</div>
   </div>
 
-  <div class="testi-shell" id="testiShell" aria-hidden="true">
-    <button class="back-fab" id="backFab" aria-label="Kembali">←</button>
-    <header class="testi-hero">
-      <h1>TESTIMONI WALZSHOP</h1>
-      <p class="sub">100+ testimoni pelanggan terpercaya</p>
-    </header>
-
-    <main>
-      <div id="testiGrid" class="grid" aria-live="polite"></div>
-
-      <div class="pager" style="text-align:center;margin-top:18px;">
-        <button id="prevBtn" class="pager-btn">Prev</button>
-        <span id="pageInfo" class="page-indicator" style="margin:0 12px;">Page 1</span>
-        <button id="nextBtn" class="pager-btn">Next</button>
-      </div>
-    </main>
+  <div class="card">
+    <div class="name">Sinta</div>
+    <div class="msg">Packing rapi, proses cepat. Recommended.</div>
   </div>
 
-  <script src="script.js"></script>
+  <div class="card">
+    <div class="name">Dimas</div>
+    <div class="msg">Respon admin ramah & cepat. Transaksi mudah.</div>
+  </div>
+
+  <div class="card">
+    <div class="name">Aldi</div>
+    <div class="msg">Langganan terus, harga bersaing!</div>
+  </div>
+
+  <a class="back" href="index.html">⬅ Kembali</a>
 </body>
 </html>

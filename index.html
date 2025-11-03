@@ -3,197 +3,158 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WALZSHOP — v4 Ultra</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <title>WALZSHOP — Official</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrapper">
     <header>
-      <div class="logo"><img src="https://files.catbox.moe/hrtpys.jpg" alt="logo"></div>
-      <div class="head-title">
+      <div class="logo">
+        <img src="https://files.catbox.moe/hrtpys.jpg" alt="Logo WALZSHOP">
+      </div>
+      <div class="header-text">
         <h1>WALZSHOP</h1>
-        <p class="lead">Official • Top up • Panel • Jasa</p>
-        <div class="divider"></div>
+        <p>Official • Top up • Panel • Website Services</p>
       </div>
     </header>
 
-    <main class="stack" aria-live="polite">
+    <main class="cards">
       <!-- QRIS -->
-      <section class="card open" id="cardQris">
-        <div class="card-header" role="button" aria-expanded="true">
-          <div class="icon">🔲</div>
-          <div class="title">PAYMENT QRIS</div>
-          <div class="chev">▾</div>
+      <section class="card open" id="qrisCard">
+        <div class="card-header">
+          <div class="icon">💳</div>
+          <h2>PAYMENT QRIS</h2>
+          <div class="arrow">▾</div>
         </div>
         <div class="card-body">
-          <div class="qris-wrap">
-            <img id="qris" class="qris-img" src="https://files.catbox.moe/pa0iwo.png" alt="qris">
-            <div class="actions">
-              <button id="openQ" class="btn">Perbesar QRIS</button>
-              <button id="copyQ" class="btn ghost">Salin Link QRIS</button>
+          <div class="qris">
+            <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS" class="qris-img">
+            <div class="buttons">
+              <button class="btn" id="openQris">Perbesar QRIS</button>
+              <button class="btn ghost" id="copyQris">Salin Link QRIS</button>
             </div>
           </div>
-          <div class="info">
-            <div class="row"><div class="label">NMID</div><div class="value">ID1025425898414</div></div>
-          </div>
         </div>
       </section>
 
-      <!-- Dana -->
-      <section class="card" id="cardDana">
-        <div class="card-header" role="button">
+      <!-- DANA -->
+      <section class="card" id="danaCard">
+        <div class="card-header">
           <div class="icon">💼</div>
-          <div class="title">PAYMENT DANA</div>
-          <div class="chev">▾</div>
+          <h2>PAYMENT DANA</h2>
+          <div class="arrow">▾</div>
         </div>
         <div class="card-body">
-          <div class="info">
-            <div class="row"><div class="label">Nama</div><div class="value">WALZEXPLOIT</div></div>
-            <div class="row"><div class="label">Nomor</div><div class="value" id="dana">082298902274</div></div>
-            <div style="text-align:center;margin-top:12px;"><button id="copyDanaBtn" class="btn">Copy Nomor</button></div>
-          </div>
+          <p class="label">Nama: <strong>WALZEXPLOIT</strong></p>
+          <p class="label">Nomor: <strong id="danaNum">082298902274</strong></p>
+          <button class="btn" id="copyDana">Copy Nomor</button>
         </div>
       </section>
 
-      <!-- Gopay -->
-      <section class="card" id="cardGopay">
-        <div class="card-header" role="button">
-          <div class="icon">💳</div>
-          <div class="title">PAYMENT GOPAY</div>
-          <div class="chev">▾</div>
+      <!-- GOPAY -->
+      <section class="card" id="gopayCard">
+        <div class="card-header">
+          <div class="icon">💠</div>
+          <h2>PAYMENT GOPAY</h2>
+          <div class="arrow">▾</div>
         </div>
         <div class="card-body">
-          <div class="info">
-            <div class="row"><div class="label">Nama</div><div class="value">TI** SUT***@</div></div>
-            <div class="row"><div class="label">Nomor</div><div class="value" id="gopay">082298902274</div></div>
-            <div style="text-align:center;margin-top:12px;"><button id="copyGopayBtn" class="btn">Copy Nomor</button></div>
-          </div>
+          <p class="label">Nama: <strong>TI** SUT***@</strong></p>
+          <p class="label">Nomor: <strong id="gopayNum">082298902274</strong></p>
+          <button class="btn" id="copyGopay">Copy Nomor</button>
         </div>
       </section>
 
-      <!-- Layanan -->
-      <section class="card" id="cardLayanan">
-        <div class="card-header" role="button">
-          <div class="icon">📦</div>
-          <div class="title">LAYANAN WALZ</div>
-          <div class="chev">▾</div>
+      <!-- LAYANAN -->
+      <section class="card" id="layananCard">
+        <div class="card-header">
+          <div class="icon">🛠️</div>
+          <h2>LAYANAN WALZ</h2>
+          <div class="arrow">▾</div>
         </div>
         <div class="card-body">
-          <div class="info" style="text-align:center">
-            <p style="margin:0;font-weight:800">WALZSHOP melayani:</p>
-            <p style="margin-top:8px;color:var(--muted);line-height:1.6">
-              LOGO BEBAS REQUEST • PANEL RUN BOT 1GB - UNLI • RESELLER PANEL & ADMIN PANEL • JASA PEMBUATAN WEBSITE
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Produk -->
-      <section class="card" id="cardProduk">
-        <div class="card-header" role="button">
-          <div class="icon">🗄️</div>
-          <div class="title">PRODUK PANEL</div>
-          <div class="chev">▾</div>
-        </div>
-        <div class="card-body">
-          <div class="prod-list">
-            <strong>PANEL PTERODACTYL</strong>
-            <ul>
-              <li>RAM 1GB : Rp1.000</li>
-              <li>RAM 2GB : Rp2.000</li>
-              <li>RAM 3GB : Rp3.000</li>
-              <li>RAM 4GB : Rp4.000</li>
-              <li>RAM 5GB : Rp5.000</li>
-              <li>RAM 6GB : Rp6.000</li>
-              <li>RAM 7GB : Rp7.000</li>
-              <li>RAM 8GB : Rp8.000</li>
-              <li>RAM 9GB : Rp9.000</li>
-              <li>RAM UNLI : Rp10.000</li>
-            </ul>
-          </div>
+          <p class="desc">LOGO BEBAS REQUEST<br>PANEL RUN BOT 1GB - UNLI<br>RESELLER PANEL & ADMIN PANEL<br>JASA PEMBUATAN WEBSITE</p>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="footer-row">
-        <div class="brand-footer">
-          <div class="brand-icon">W</div>
-          <div>
-            <div class="brand-name">WALZSHOP</div>
-            <div class="small">Top up • Panel • Website services</div>
-          </div>
-        </div>
-        <div class="small">© WALZSHOP • All rights reserved</div>
+      <div class="footer-inner">
+        <span>Designed & Developed by <b>WALZSHOP</b> © 2025</span>
       </div>
     </footer>
   </div>
 
-  <div class="pop" id="pop">✔︎ Tersalin</div>
+  <!-- Pop-up Copy -->
+  <div class="popup" id="popup">✔️ Tersalin</div>
 
-  <a class="wa" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank" rel="noopener">WA Admin</a>
+  <!-- WhatsApp Floating -->
+  <a class="whatsapp" href="https://wa.me/6282298902274?text=Halo%20WALZSHOP%2C%20saya%20ingin%20order" target="_blank">💬 Chat Admin</a>
 
-  <div id="modal" class="modal">
+  <!-- Modal QRIS -->
+  <div class="modal" id="modal">
     <div class="modal-box">
-      <img id="modalImg" src="https://files.catbox.moe/pa0iwo.png" alt="qris">
-      <button id="closeM" class="btn">Tutup</button>
+      <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS">
+      <button id="closeModal" class="btn">Tutup</button>
     </div>
   </div>
 
   <script>
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
+    // toggle cards
+    document.querySelectorAll('.card').forEach(card => {
       const header = card.querySelector('.card-header');
-      const chev = header.querySelector('.chev');
-      header.addEventListener('click', () => {
+      const arrow = header.querySelector('.arrow');
+      header.onclick = () => {
         const open = card.classList.contains('open');
-        document.querySelectorAll('.card.open').forEach(c => c.classList.remove('open'));
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
         if (!open) card.classList.add('open');
-        chev.classList.toggle('rotate', !open);
-      });
+        arrow.classList.toggle('rotate', !open);
+      };
     });
 
     // modal QRIS
     const modal = document.getElementById('modal');
-    document.getElementById('openQ').onclick = () => { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; };
-    document.getElementById('closeM').onclick = () => { modal.style.display = 'none'; document.body.style.overflow = 'auto'; };
-    modal.onclick = e => { if (e.target === modal) modal.style.display = 'none'; document.body.style.overflow = 'auto'; };
+    document.getElementById('openQris').onclick = () => modal.classList.add('show');
+    document.getElementById('closeModal').onclick = () => modal.classList.remove('show');
+    modal.onclick = e => { if (e.target === modal) modal.classList.remove('show'); };
 
-    // Copy functions
-    const pop = document.getElementById('pop');
+    // copy popup
+    const popup = document.getElementById('popup');
     let popTimer;
-    function showPop(msg) {
+    function showPopup(msg) {
       clearTimeout(popTimer);
-      pop.textContent = '✔︎ ' + msg;
-      pop.classList.add('show');
-      popTimer = setTimeout(() => pop.classList.remove('show'), 1700);
+      popup.textContent = msg;
+      popup.classList.add('show');
+      popTimer = setTimeout(() => popup.classList.remove('show'), 1500);
     }
-    async function copySafe(txt) {
+
+    async function copyText(txt) {
       try {
         await navigator.clipboard.writeText(txt);
         return true;
-      } catch (e) {
-        const ta = document.createElement('textarea');
-        ta.value = txt;
-        document.body.appendChild(ta);
-        ta.select();
+      } catch {
+        const el = document.createElement('textarea');
+        el.value = txt;
+        document.body.appendChild(el);
+        el.select();
         document.execCommand('copy');
-        document.body.removeChild(ta);
+        document.body.removeChild(el);
         return true;
       }
     }
-    document.getElementById('copyDanaBtn').onclick = async () => {
-      const num = document.getElementById('dana').textContent.trim();
-      if (await copySafe(num)) showPop('Nomor DANA tersalin');
+
+    document.getElementById('copyDana').onclick = async () => {
+      if (await copyText(document.getElementById('danaNum').textContent))
+        showPopup('Nomor DANA tersalin');
     };
-    document.getElementById('copyGopayBtn').onclick = async () => {
-      const num = document.getElementById('gopay').textContent.trim();
-      if (await copySafe(num)) showPop('Nomor GOPAY tersalin');
+    document.getElementById('copyGopay').onclick = async () => {
+      if (await copyText(document.getElementById('gopayNum').textContent))
+        showPopup('Nomor GOPAY tersalin');
     };
-    document.getElementById('copyQ').onclick = async () => {
-      const url = document.getElementById('qris').src;
-      if (await copySafe(url)) showPop('Link QRIS tersalin');
+    document.getElementById('copyQris').onclick = async () => {
+      if (await copyText(document.querySelector('.qris-img').src))
+        showPopup('Link QRIS tersalin');
     };
   </script>
 </body>

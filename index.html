@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- cinematic loader -->
-  <div id="globalLoader" class="loading-overlay show">
+  <!-- cinematic loader (centered) -->
+  <div id="globalLoader" class="loading-overlay show" aria-hidden="false">
     <div class="loading-inner">
       <div class="loader" aria-hidden="true"></div>
       <div class="loading-text">Loading WALZSHOP...</div>
@@ -26,10 +26,9 @@
     <main>
       <section class="accordion" aria-label="Layanan WALZSHOP">
 
-        <article class="card">
+        <article class="card" data-index="1">
           <button class="card-head" data-target="panel-qris" type="button" aria-expanded="false">
             <span class="svg-wrap" aria-hidden="true">
-              <!-- svg icon -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
                 <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>
               </svg>
@@ -46,7 +45,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-index="2">
           <button class="card-head" data-target="panel-dana" type="button" aria-expanded="false">
             <span class="svg-wrap" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
@@ -68,7 +67,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-index="3">
           <button class="card-head" data-target="panel-gopay" type="button" aria-expanded="false">
             <span class="svg-wrap" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
@@ -90,7 +89,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-index="4">
           <button class="card-head" data-target="panel-produk" type="button" aria-expanded="false">
             <span class="svg-wrap" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">

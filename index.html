@@ -1,110 +1,118 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>WALZSHOP — Payment Portal</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="loader.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WALZSHOP — Official Payment</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="loader.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Loader -->
-  <div class="loader-wrap" id="loader">
-    <div class="loader"></div>
-  </div>
+<!-- Loader -->
+<div class="loader-wrap" id="loader">
+  <div class="loader"></div>
+</div>
 
-  <!-- Header -->
-  <div class="header">
-    <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP Logo" class="logo">
-    <h1>WALZSHOP</h1>
-    <div class="divider"></div>
-  </div>
+<!-- Header -->
+<header class="header">
+  <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP Logo" class="logo">
+  <h1>WALZSHOP</h1>
+  <div class="divider"></div>
+</header>
 
-  <!-- Accordion -->
-  <div class="accordion">
+<!-- Menu -->
+<section class="accordion">
 
-    <!-- QRIS -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>PAYMENT QRIS</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-        </svg>
-      </button>
-      <div class="accordion-content">
-        <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS" class="qris-img">
-        <button class="btn" onclick="window.open('https://files.catbox.moe/pa0iwo.png','_blank')">Perbesar QRIS</button>
-      </div>
-    </div>
-
-    <!-- DANA -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>PAYMENT DANA</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-        </svg>
-      </button>
-      <div class="accordion-content">
-        <p><b>Nama:</b> WALZEXPLOIT</p>
-        <p><b>Nomor:</b> 082298902274</p>
-        <button class="btn" onclick="copyNumber('082298902274')">Copy Number</button>
-      </div>
-    </div>
-
-    <!-- GOPAY -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>PAYMENT GOPAY</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-        </svg>
-      </button>
-      <div class="accordion-content">
-        <p><b>Nama:</b> TI** SUT***</p>
-        <p><b>Nomor:</b> 082298902274</p>
-        <button class="btn" onclick="copyNumber('082298902274')">Copy Number</button>
-      </div>
-    </div>
-
-    <!-- PANEL -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span>PRODUK PANEL</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-        </svg>
-      </button>
-      <div class="accordion-content">
-        <p>Menjual panel, hosting & bot murah.</p>
+  <!-- QRIS -->
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>PAYMENT QRIS</span>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+    <div class="accordion-content">
+      <div class="qris-wrapper">
+        <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP" class="qris-img">
+        <div class="qris-buttons">
+          <button class="btn" onclick="window.open('https://files.catbox.moe/pa0iwo.png','_blank')">Perbesar QRIS</button>
+          <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Kembali</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Floating -->
-  <a href="testimoni.html" class="floating-btn">💬</a>
+  <!-- DANA -->
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>PAYMENT DANA</span>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+    <div class="accordion-content">
+      <p><b>Nama:</b> WALZEXPLOIT</p>
+      <p><b>Nomor:</b> 082298902274</p>
+      <button class="btn" onclick="copyNumber('082298902274')">Salin Nomor</button>
+    </div>
+  </div>
 
-  <script>
-    // Loader
-    window.addEventListener("load", () => {
-      setTimeout(() => document.getElementById("loader").classList.add("hidden"), 700);
-    });
+  <!-- GOPAY -->
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>PAYMENT GOPAY</span>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+    <div class="accordion-content">
+      <p><b>Nama:</b> TI** SUT***</p>
+      <p><b>Nomor:</b> 082298902274</p>
+      <button class="btn" onclick="copyNumber('082298902274')">Salin Nomor</button>
+    </div>
+  </div>
 
-    // Accordion
-    document.querySelectorAll(".accordion-header").forEach(header => {
-      header.addEventListener("click", () => {
-        const item = header.parentElement;
-        item.classList.toggle("active");
-      });
-    });
+  <!-- PANEL -->
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>PRODUK PANEL</span>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+    <div class="accordion-content">
+      <p>Menjual panel, bot, hosting & layanan digital premium.</p>
+    </div>
+  </div>
+</section>
 
-    // Copy
-    function copyNumber(num){
-      navigator.clipboard.writeText(num);
-      alert("Nomor disalin: " + num);
-    }
-  </script>
+<!-- Floating Chat -->
+<a href="testimoni.html" class="floating-btn" title="Lihat Testimoni">💬</a>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>© 2025 WALZSHOP. All Rights Reserved.</p>
+</footer>
+
+<script>
+// Loader
+window.addEventListener("load",()=>setTimeout(()=>document.getElementById("loader").classList.add("hidden"),700));
+
+// Accordion
+document.querySelectorAll(".accordion-header").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const item=btn.parentElement;
+    item.classList.toggle("active");
+  });
+});
+
+// Copy number
+function copyNumber(num){
+  navigator.clipboard.writeText(num);
+  alert("Nomor disalin: " + num);
+}
+</script>
 </body>
 </html>

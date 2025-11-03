@@ -1,0 +1,30 @@
+.loader-wrap {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #000 70%, #0a0a0a);
+  z-index: 9999;
+  transition: opacity .4s ease, visibility .4s ease;
+}
+.loader-wrap.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  --_g: no-repeat radial-gradient(farthest-side, #fff 94%, #0000);
+  background:
+    var(--_g) 0 0,
+    var(--_g) 100% 0,
+    var(--_g) 100% 100%,
+    var(--_g) 0 100%;
+  background-size: 40% 40%;
+  animation: l38 .5s infinite;
+  border-radius: 8px;
+}
+@keyframes l38 {
+  100% { background-position: 100% 0,100% 100%,0 100%,0 0; }
+}

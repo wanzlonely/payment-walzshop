@@ -6,16 +6,16 @@
   <title>WALZSHOP — Payment</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="loader.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ===== LOADER ===== -->
+  <!-- LOADER -->
   <div id="loader" class="loader-wrap">
     <div class="loader" aria-hidden="true"></div>
   </div>
 
-  <!-- ===== HEADER ===== -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <div class="logo-wrap">
@@ -26,25 +26,23 @@
     </div>
   </header>
 
-  <!-- ===== ACCORDION LIST ===== -->
+  <!-- MAIN -->
   <main class="container">
 
     <!-- PAYMENT QRIS -->
     <article class="card accordion-item">
       <button class="accordion-header" aria-expanded="false">
         <div class="header-left">
-          <!-- SVG QR icon -->
+          <!-- QR SVG -->
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-            <rect x="3" y="3" width="8" height="8" stroke-width="1.6" rx="1.6"></rect>
-            <rect x="13" y="3" width="8" height="8" stroke-width="1.6" rx="1.6"></rect>
-            <rect x="3" y="13" width="8" height="8" stroke-width="1.6" rx="1.6"></rect>
-            <rect x="13" y="13" width="8" height="8" stroke-width="1.6" rx="1.6"></rect>
+            <rect x="3" y="3" width="8" height="8" rx="1.6" stroke-width="1.6"></rect>
+            <rect x="13" y="3" width="8" height="8" rx="1.6" stroke-width="1.6"></rect>
+            <rect x="3" y="13" width="8" height="8" rx="1.6" stroke-width="1.6"></rect>
+            <rect x="13" y="13" width="8" height="8" rx="1.6" stroke-width="1.6"></rect>
           </svg>
           <span class="header-title">PAYMENT QRIS</span>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </button>
 
       <div class="accordion-body">
@@ -64,27 +62,23 @@
     <article class="card accordion-item">
       <button class="accordion-header" aria-expanded="false">
         <div class="header-left">
-          <!-- SVG wallet icon -->
+          <!-- wallet SVG -->
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
             <rect x="2" y="6" width="20" height="12" rx="2" stroke-width="1.6"></rect>
             <circle cx="18" cy="12" r="1" stroke-width="1.6"></circle>
           </svg>
           <span class="header-title">PAYMENT DANA</span>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </button>
 
       <div class="accordion-body">
-        <div class="info-card">
+        <div class="info-card center">
           <div class="info-row"><span class="label">Nama</span><span class="value">WALZEXPLOIT</span></div>
-          <div class="info-row"><span class="label">Nomor</span>
-            <span class="value" id="danaNumber">082298902274</span>
-          </div>
+          <div class="info-row"><span class="label">Nomor</span><span class="value" id="danaNumber">082298902274</span></div>
+
           <div class="card-actions">
-            <button class="btn" data-copy="082298902274">Salin Nomor</button>
-            <a class="btn outline" href="https://wa.me/6282298902274?text=Halo%20Admin" target="_blank" rel="noopener">Chat via WA</a>
+            <button class="btn primary copy-center" data-copy="082298902274">Copy Nomor</button>
           </div>
         </div>
       </div>
@@ -94,54 +88,83 @@
     <article class="card accordion-item">
       <button class="accordion-header" aria-expanded="false">
         <div class="header-left">
-          <!-- SVG phone/pay icon -->
+          <!-- phone SVG -->
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
             <rect x="3" y="2" width="18" height="20" rx="3" stroke-width="1.6"></rect>
             <circle cx="12" cy="17" r="1" stroke-width="1.6"></circle>
           </svg>
           <span class="header-title">PAYMENT GOPAY</span>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </button>
 
       <div class="accordion-body">
-        <div class="info-card">
+        <div class="info-card center">
           <div class="info-row"><span class="label">Nama</span><span class="value">TI** SUT***</span></div>
           <div class="info-row"><span class="label">Nomor</span><span class="value">082298902274</span></div>
           <div class="card-actions">
-            <button class="btn" data-copy="082298902274">Salin Nomor</button>
+            <button class="btn primary copy-center" data-copy="082298902274">Copy Nomor</button>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- PRODUK PANEL -->
+    <!-- LAYANAN WALZ (ambil gaya dari gambar) -->
     <article class="card accordion-item">
       <button class="accordion-header" aria-expanded="false">
         <div class="header-left">
-          <!-- SVG box/server -->
+          <!-- box SVG -->
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
             <path d="M3 6h18" stroke-width="1.6"></path>
             <rect x="3" y="8" width="18" height="8" rx="2" stroke-width="1.6"></rect>
           </svg>
-          <span class="header-title">PRODUK PANEL</span>
+          <span class="header-title">LAYANAN WALZ</span>
         </div>
-        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <div class="accordion-body">
+        <div class="info-card">
+          <div class="large-box">
+            <h3>WALZSHOP melayani:</h3>
+            <ul class="bullet-list">
+              <li>• LOGO BEBAS REQUEST</li>
+              <li>• PANEL RUN BOT 1GB - UNLI</li>
+              <li>• RESELLER PANEL & ADMIN PANEL</li>
+              <li>• JASA PEMBUATAN WEBSITE</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- PRODUK WALZ (harga list like image) -->
+    <article class="card accordion-item">
+      <button class="accordion-header" aria-expanded="false">
+        <div class="header-left">
+          <!-- server icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="6" rx="2" stroke-width="1.6"></rect>
+            <rect x="3" y="14" width="18" height="6" rx="2" stroke-width="1.6"></rect>
+          </svg>
+          <span class="header-title">PRODUK WALZ</span>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
       </button>
 
       <div class="accordion-body">
-        <div class="info-card">
-          <p class="muted">
-            Layanan: Panel Pterodactyl, VPS, Hosting, Panel Reseller, Jasa Web & Logo.
-          </p>
-          <ul class="bullet-list">
-            <li>Panel PTERODACTYL — RAM 1GB → 10GB (opsi UNLI)</li>
-            <li>Reseller Panel & Admin</li>
-            <li>Jasa Pembuatan Website & Design</li>
+        <div class="info-card scrollbox">
+          <h3>PANEL PTERODACTYL</h3>
+          <ul class="price-list">
+            <li>RAM 1GB : Rp1.000</li>
+            <li>RAM 2GB : Rp2.000</li>
+            <li>RAM 3GB : Rp3.000</li>
+            <li>RAM 4GB : Rp4.000</li>
+            <li>RAM 5GB : Rp5.000</li>
+            <li>RAM 6GB : Rp6.000</li>
+            <li>RAM 7GB : Rp7.000</li>
+            <li>RAM 8GB : Rp8.000</li>
+            <li>RAM 9GB : Rp9.000</li>
+            <li>RAM UNLI : Rp10.000</li>
           </ul>
         </div>
       </div>
@@ -149,7 +172,7 @@
 
   </main>
 
-  <!-- ===== QRIS ENLARGER (modal-like, but with bottom-back button) ===== -->
+  <!-- QRIS ENLARGER (modal-like with bottom back button) -->
   <div id="qrisModal" class="qris-modal" aria-hidden="true">
     <div class="qris-modal-inner">
       <div class="qris-modal-card">
@@ -161,102 +184,98 @@
     </div>
   </div>
 
-  <!-- ===== TOAST (custom) ===== -->
+  <!-- TOAST -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- ===== FLOATING BUTTONS (SVG icons) ===== -->
-  <a class="floating floating-wa" href="https://wa.me/6282298902274" target="_blank" rel="noopener" title="WhatsApp Admin">
-    <!-- WA SVG -->
-    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M21 11.5a9 9 0 10-2.6 6.1L21 21l-1.4-7.9A8.9 8.9 0 0021 11.5z" stroke-width="0"/></svg>
+  <!-- FLOATING BUTTONS (SVG: WA, Telegram, Testimoni) -->
+  <a class="floating floating-test" href="testimoni.html" title="Testimoni" aria-label="Testimoni">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
   </a>
 
-  <a class="floating floating-tg" href="https://t.me/walzdevnew" target="_blank" rel="noopener" title="Telegram Admin">
-    <!-- Telegram SVG -->
-    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M22 4L2 12l6 2 2 6 12-16z" stroke-width="0"/></svg>
+  <a class="floating floating-wa" href="https://wa.me/6282298902274" target="_blank" rel="noopener" title="WhatsApp Admin" aria-label="WhatsApp Admin">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M21 11.5a9 9 0 10-2.6 6.1L21 21l-1.4-7.9A8.9 8.9 0 0021 11.5z"/></svg>
   </a>
 
-  <a class="floating floating-test" href="testimoni.html" title="Testimoni">
-    <!-- Chat SVG -->
-    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-width="0"/></svg>
+  <a class="floating floating-tg" href="https://t.me/walzdevnew" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M22 4L2 12l6 2 2 6 12-16z"/></svg>
   </a>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <small>© 2025 WALZSHOP — All rights reserved</small>
+      <small>© 2025 WALZSHOP • All rights reserved</small>
     </div>
   </footer>
 
-  <!-- ===== SCRIPTS ===== -->
+  <!-- SCRIPTS -->
   <script>
-    // Loader hide
+    // Hide loader after load
     window.addEventListener('load', () => {
-      setTimeout(() => document.getElementById('loader').classList.add('hidden'), 600);
+      setTimeout(()=>document.getElementById('loader').classList.add('hidden'), 600);
     });
 
-    // Accordion behavior: open/close full-width body
+    // Smooth accordion (single-open)
     document.querySelectorAll('.accordion-item').forEach(item => {
       const header = item.querySelector('.accordion-header');
-      const body = item.querySelector('.accordion-body');
       header.addEventListener('click', () => {
-        const expanded = header.getAttribute('aria-expanded') === 'true';
-        // close all others (optional: keep single open)
+        const wasActive = item.classList.contains('active');
+        // close all
         document.querySelectorAll('.accordion-item').forEach(i => {
           i.classList.remove('active');
           i.querySelector('.accordion-header').setAttribute('aria-expanded','false');
         });
-        if (!expanded) {
+        if(!wasActive){
           item.classList.add('active');
           header.setAttribute('aria-expanded','true');
-        } else {
-          item.classList.remove('active');
-          header.setAttribute('aria-expanded','false');
+          // scroll into view smoothly a bit to center
+          setTimeout(()=> item.scrollIntoView({behavior:'smooth', block:'center'}), 220);
         }
       });
     });
 
-    // Copy to clipboard with custom toast
-    function showToast(msg) {
+    // Toast util
+    function showToast(msg){
       const t = document.getElementById('toast');
       t.textContent = msg;
       t.classList.add('show');
       clearTimeout(t._tm);
-      t._tm = setTimeout(() => t.classList.remove('show'), 2500);
+      t._tm = setTimeout(()=> t.classList.remove('show'), 2600);
     }
 
-    document.querySelectorAll('[data-copy]').forEach(btn => {
+    // Copy buttons (only copy number, center)
+    document.querySelectorAll('[data-copy]').forEach(btn=>{
       btn.addEventListener('click', () => {
         const txt = btn.getAttribute('data-copy');
-        navigator.clipboard.writeText(txt).then(() => {
-          showToast('✅ Nomor berhasil disalin');
-        }).catch(() => showToast('⚠️ Gagal menyalin'));
+        navigator.clipboard.writeText(txt).then(()=> showToast('✅ Nomor berhasil disalin')).catch(()=> showToast('⚠️ Gagal menyalin'));
       });
     });
 
-    // QRIS enlarge modal (in-place)
+    // QRIS enlarge (in-place modal, back button bottom)
     const openQrisBtn = document.getElementById('openQrisBtn');
     const qrisModal = document.getElementById('qrisModal');
     const qrisBackBtn = document.getElementById('qrisBackBtn');
 
-    openQrisBtn.addEventListener('click', () => {
+    openQrisBtn.addEventListener('click', ()=>{
+      qrisModal.classList.add('visible');
       qrisModal.style.display = 'flex';
-      setTimeout(()=> qrisModal.classList.add('visible'), 10);
-    });
-    qrisBackBtn.addEventListener('click', () => {
-      qrisModal.classList.remove('visible');
-      setTimeout(()=> qrisModal.style.display = 'none', 300);
+      // prevent body scroll
+      document.body.style.overflow = 'hidden';
     });
 
-    // also close modal on backdrop click (but ensure back button exists)
-    qrisModal.addEventListener('click', (e) => {
-      if (e.target === qrisModal) {
+    qrisBackBtn.addEventListener('click', ()=>{
+      qrisModal.classList.remove('visible');
+      setTimeout(()=> { qrisModal.style.display='none'; document.body.style.overflow=''; }, 280);
+    });
+
+    // close on backdrop
+    qrisModal.addEventListener('click', (e)=>{
+      if(e.target === qrisModal){
         qrisBackBtn.click();
       }
     });
 
-    // Auto guide toast to testimoni after few seconds
-    setTimeout(()=> showToast('💬 Lihat testimoni di sini!'), 4000);
+    // subtle auto guide toast to testimoni (after few seconds)
+    setTimeout(()=> showToast('💬 Lihat testimoni di sini!'), 4200);
   </script>
-
 </body>
 </html>

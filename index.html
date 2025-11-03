@@ -1,144 +1,262 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>WALZSHOP — Official Payment Portal</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WALZSHOP — Payment</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="loader.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- LOADER -->
-  <div class="loader-wrap" id="loader">
-    <div class="loader"></div>
+  <!-- ===== LOADER ===== -->
+  <div id="loader" class="loader-wrap">
+    <div class="loader" aria-hidden="true"></div>
   </div>
 
-  <!-- HEADER -->
-  <header class="header">
-    <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP Logo" class="logo">
-    <h1>WALZSHOP</h1>
-    <div class="divider"></div>
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="https://files.catbox.moe/hrtpys.jpg" alt="WALZSHOP" class="logo">
+      </div>
+      <h1 class="site-title">WALZSHOP</h1>
+      <div class="title-underline"></div>
+    </div>
   </header>
 
-  <!-- ACCORDION MENU -->
-  <section class="accordion">
+  <!-- ===== ACCORDION LIST ===== -->
+  <main class="container">
 
-    <!-- QRIS -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span><svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg> PAYMENT QRIS</span>
+    <!-- PAYMENT QRIS -->
+    <article class="card accordion-item">
+      <button class="accordion-header" aria-expanded="false">
+        <div class="header-left">
+          <!-- SVG QR icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="3" y="3" width="8" height="8" stroke-width="1.6" rx="1.6"></rect>
+            <rect x="13" y="3" width="8" height="8" stroke-width="1.6" rx="1.6"></rect>
+            <rect x="3" y="13" width="8" height="8" stroke-width="1.6" rx="1.6"></rect>
+            <rect x="13" y="13" width="8" height="8" stroke-width="1.6" rx="1.6"></rect>
+          </svg>
+          <span class="header-title">PAYMENT QRIS</span>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
-      <div class="accordion-content">
-        <div class="qris-wrapper">
-          <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP" id="qrisImage" class="qris-img">
-          <div class="qris-buttons">
-            <button class="btn" onclick="toggleQris(true)">Perbesar QRIS</button>
+
+      <div class="accordion-body">
+        <div class="poster-area">
+          <div class="poster-card">
+            <img id="qrisThumb" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP" crossorigin="anonymous">
+          </div>
+
+          <div class="poster-actions">
+            <button class="btn primary" id="openQrisBtn">Perbesar QRIS</button>
           </div>
         </div>
       </div>
-    </div>
+    </article>
 
-    <!-- DANA -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span><svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg> PAYMENT DANA</span>
+    <!-- PAYMENT DANA -->
+    <article class="card accordion-item">
+      <button class="accordion-header" aria-expanded="false">
+        <div class="header-left">
+          <!-- SVG wallet icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="2" y="6" width="20" height="12" rx="2" stroke-width="1.6"></rect>
+            <circle cx="18" cy="12" r="1" stroke-width="1.6"></circle>
+          </svg>
+          <span class="header-title">PAYMENT DANA</span>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
-      <div class="accordion-content">
-        <div class="payment-box">
-          <p><b>Nama:</b> WALZEXPLOIT</p>
-          <p><b>Nomor:</b> 082298902274</p>
-          <button class="btn" onclick="copyToClipboard('082298902274','DANA')">Salin Nomor</button>
+
+      <div class="accordion-body">
+        <div class="info-card">
+          <div class="info-row"><span class="label">Nama</span><span class="value">WALZEXPLOIT</span></div>
+          <div class="info-row"><span class="label">Nomor</span>
+            <span class="value" id="danaNumber">082298902274</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn" data-copy="082298902274">Salin Nomor</button>
+            <a class="btn outline" href="https://wa.me/6282298902274?text=Halo%20Admin" target="_blank" rel="noopener">Chat via WA</a>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
 
-    <!-- GOPAY -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span><svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg> PAYMENT GOPAY</span>
+    <!-- PAYMENT GOPAY -->
+    <article class="card accordion-item">
+      <button class="accordion-header" aria-expanded="false">
+        <div class="header-left">
+          <!-- SVG phone/pay icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="3" y="2" width="18" height="20" rx="3" stroke-width="1.6"></rect>
+            <circle cx="12" cy="17" r="1" stroke-width="1.6"></circle>
+          </svg>
+          <span class="header-title">PAYMENT GOPAY</span>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
-      <div class="accordion-content">
-        <div class="payment-box">
-          <p><b>Nama:</b> TI** SUT***</p>
-          <p><b>Nomor:</b> 082298902274</p>
-          <button class="btn" onclick="copyToClipboard('082298902274','GOPAY')">Salin Nomor</button>
+
+      <div class="accordion-body">
+        <div class="info-card">
+          <div class="info-row"><span class="label">Nama</span><span class="value">TI** SUT***</span></div>
+          <div class="info-row"><span class="label">Nomor</span><span class="value">082298902274</span></div>
+          <div class="card-actions">
+            <button class="btn" data-copy="082298902274">Salin Nomor</button>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
 
-    <!-- PANEL -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        <span><svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg> PRODUK PANEL</span>
+    <!-- PRODUK PANEL -->
+    <article class="card accordion-item">
+      <button class="accordion-header" aria-expanded="false">
+        <div class="header-left">
+          <!-- SVG box/server -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path d="M3 6h18" stroke-width="1.6"></path>
+            <rect x="3" y="8" width="18" height="8" rx="2" stroke-width="1.6"></rect>
+          </svg>
+          <span class="header-title">PRODUK PANEL</span>
+        </div>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
-      <div class="accordion-content">
-        <p>
-          WALZSHOP menyediakan:<br><br>
-          • PANEL RUN BOT 1GB - UNLIMITED<br>
-          • HOSTING & WEBSITE ORDER<br>
-          • RESELLER & ADMIN PANEL<br>
-          • DESAIN LOGO & BRAND KIT<br>
-        </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- QRIS MODAL -->
-  <div id="qrisModal" class="qris-modal">
-    <div class="qris-modal-content">
-      <button class="close-btn" onclick="toggleQris(false)">×</button>
-      <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS Besar">
+      <div class="accordion-body">
+        <div class="info-card">
+          <p class="muted">
+            Layanan: Panel Pterodactyl, VPS, Hosting, Panel Reseller, Jasa Web & Logo.
+          </p>
+          <ul class="bullet-list">
+            <li>Panel PTERODACTYL — RAM 1GB → 10GB (opsi UNLI)</li>
+            <li>Reseller Panel & Admin</li>
+            <li>Jasa Pembuatan Website & Design</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ===== QRIS ENLARGER (modal-like, but with bottom-back button) ===== -->
+  <div id="qrisModal" class="qris-modal" aria-hidden="true">
+    <div class="qris-modal-inner">
+      <div class="qris-modal-card">
+        <img id="qrisLarge" src="https://files.catbox.moe/pa0iwo.png" alt="QRIS besar">
+        <div class="qris-modal-actions">
+          <button class="btn outline" id="qrisBackBtn">Kembali</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- FLOATING BUTTONS -->
-  <a href="https://wa.me/6282298902274" class="floating-btn wa" title="WhatsApp Admin">🟢</a>
-  <a href="https://t.me/walzdevnew" class="floating-btn tg" title="Telegram">💙</a>
-  <a href="testimoni.html" class="floating-btn chat" title="Lihat Testimoni">💬</a>
+  <!-- ===== TOAST (custom) ===== -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- TOAST -->
-  <div id="toast"></div>
+  <!-- ===== FLOATING BUTTONS (SVG icons) ===== -->
+  <a class="floating floating-wa" href="https://wa.me/6282298902274" target="_blank" rel="noopener" title="WhatsApp Admin">
+    <!-- WA SVG -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M21 11.5a9 9 0 10-2.6 6.1L21 21l-1.4-7.9A8.9 8.9 0 0021 11.5z" stroke-width="0"/></svg>
+  </a>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© 2025 WALZSHOP | All Rights Reserved</p>
+  <a class="floating floating-tg" href="https://t.me/walzdevnew" target="_blank" rel="noopener" title="Telegram Admin">
+    <!-- Telegram SVG -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M22 4L2 12l6 2 2 6 12-16z" stroke-width="0"/></svg>
+  </a>
+
+  <a class="floating floating-test" href="testimoni.html" title="Testimoni">
+    <!-- Chat SVG -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="white"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-width="0"/></svg>
+  </a>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <small>© 2025 WALZSHOP — All rights reserved</small>
+    </div>
   </footer>
 
+  <!-- ===== SCRIPTS ===== -->
   <script>
-    // Loader
-    window.addEventListener("load", () => setTimeout(() => document.getElementById("loader").classList.add("hidden"), 600));
+    // Loader hide
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader').classList.add('hidden'), 600);
+    });
 
-    // Accordion
-    document.querySelectorAll(".accordion-header").forEach((header) => {
-      header.addEventListener("click", () => {
-        const item = header.parentElement;
-        item.classList.toggle("active");
+    // Accordion behavior: open/close full-width body
+    document.querySelectorAll('.accordion-item').forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      const body = item.querySelector('.accordion-body');
+      header.addEventListener('click', () => {
+        const expanded = header.getAttribute('aria-expanded') === 'true';
+        // close all others (optional: keep single open)
+        document.querySelectorAll('.accordion-item').forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.accordion-header').setAttribute('aria-expanded','false');
+        });
+        if (!expanded) {
+          item.classList.add('active');
+          header.setAttribute('aria-expanded','true');
+        } else {
+          item.classList.remove('active');
+          header.setAttribute('aria-expanded','false');
+        }
       });
     });
 
-    // Copy number
-    function copyToClipboard(num, service) {
-      navigator.clipboard.writeText(num);
-      showToast("✅ Nomor " + service + " berhasil disalin!");
-    }
-
-    // Toast notif
+    // Copy to clipboard with custom toast
     function showToast(msg) {
-      const toast = document.getElementById("toast");
-      toast.innerText = msg;
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2500);
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._tm);
+      t._tm = setTimeout(() => t.classList.remove('show'), 2500);
     }
 
-    // QRIS modal
-    function toggleQris(show) {
-      document.getElementById("qrisModal").style.display = show ? "flex" : "none";
-    }
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const txt = btn.getAttribute('data-copy');
+        navigator.clipboard.writeText(txt).then(() => {
+          showToast('✅ Nomor berhasil disalin');
+        }).catch(() => showToast('⚠️ Gagal menyalin'));
+      });
+    });
 
-    // Auto testimoni notif
-    setTimeout(() => showToast("💬 Lihat testimoni di sini!"), 3500);
+    // QRIS enlarge modal (in-place)
+    const openQrisBtn = document.getElementById('openQrisBtn');
+    const qrisModal = document.getElementById('qrisModal');
+    const qrisBackBtn = document.getElementById('qrisBackBtn');
+
+    openQrisBtn.addEventListener('click', () => {
+      qrisModal.style.display = 'flex';
+      setTimeout(()=> qrisModal.classList.add('visible'), 10);
+    });
+    qrisBackBtn.addEventListener('click', () => {
+      qrisModal.classList.remove('visible');
+      setTimeout(()=> qrisModal.style.display = 'none', 300);
+    });
+
+    // also close modal on backdrop click (but ensure back button exists)
+    qrisModal.addEventListener('click', (e) => {
+      if (e.target === qrisModal) {
+        qrisBackBtn.click();
+      }
+    });
+
+    // Auto guide toast to testimoni after few seconds
+    setTimeout(()=> showToast('💬 Lihat testimoni di sini!'), 4000);
   </script>
+
 </body>
 </html>

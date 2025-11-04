@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "https://link-gambar-anda.com?text=Testi+21",
         "https://link-gambar-anda.com?text=Testi+22",
         "https://link-gambar-anda.com?text=Testi+23",
-        "https://link-gambar-anda.com?text=Testi+24"
+        "https://link-gambar-anda.com?text=Testi+24", 
  "https://link-gambar-anda.com/testi13.jpg?text=Testi+25",
         // "https://link-gambar-anda.com/testi14.jpg",
     ];

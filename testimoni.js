@@ -28,11 +28,22 @@ document.addEventListener("DOMContentLoaded", function() {
         "https://files.catbox.moe/5du1cx.jpg?text=Testi+7",
         "https://files.catbox.moe/rwrjmt.jpg?text=Testi+8",
         "https://files.catbox.moe/53ty1u.jpg?text=Testi+9",
-        "https://files.catbox.moe/ygmcje.png?text=Testi+10",
-        "https://via.placeholder.com/300x533.png?text=Testi+11",
-        "https://via.placeholder.com/300x533.png?text=Testi+12"
-        // ... Tambahkan 88 link lainnya di sini
-        // "https://link-gambar-anda.com/testi13.jpg",
+        "https://files.catbox.moe/msg2pq.jpg?text=Testi+10",
+        "https://files.catbox.moe/43o1v6.jpg?text=Testi+11",
+        "https://files.catbox.moe/7ytgjf.jpg?text=Testi+12"
+ "https://files.catbox.moe/ygmcje.png?text=Testi+13",
+        "https://link-gambar-anda.com?text=Testi+14",
+        "https://link-gambar-anda.com?text=Testi+15",
+        "https://link-gambar-anda.com?text=Testi+16",
+        "https://link-gambar-anda.com?text=Testi+17",
+        "https://link-gambar-anda.com?text=Testi+18",
+        "https://link-gambar-anda.com?text=Testi+19",
+        "https://link-gambar-anda.com?text=Testi+20",
+        "https://link-gambar-anda.com?text=Testi+21",
+        "https://link-gambar-anda.com?text=Testi+22",
+        "https://link-gambar-anda.com?text=Testi+23",
+        "https://link-gambar-anda.com?text=Testi+24"
+ "https://link-gambar-anda.com/testi13.jpg?text=Testi+25",
         // "https://link-gambar-anda.com/testi14.jpg",
     ];
 

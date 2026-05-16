@@ -1,33 +1,83 @@
 // ── Loader ──
 window.addEventListener('load', () => {
-    document.getElementById('loader-wrapper').classList.add('hidden');
+    setTimeout(() => {
+        document.getElementById('loader-wrapper').classList.add('hidden');
+    }, 400);
 });
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ── Accordion ──
-    const accordions = document.querySelectorAll('.accordion');
-    accordions.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const isActive = this.classList.contains('active');
-            // close all
-            accordions.forEach(b => {
-                b.classList.remove('active');
-                const p = b.nextElementSibling;
-                if (p && p.classList.contains('panel')) p.style.maxHeight = null;
+    // ══════════════════════════════════════
+    // PARTICLE CANVAS
+    // ══════════════════════════════════════
+    const canvas = document.getElementById('bg-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let W, H, particles = [];
+
+        function resize() {
+            W = canvas.width  = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        const COLORS = ['rgba(0,212,255,', 'rgba(139,92,246,', 'rgba(244,114,182,'];
+
+        for (let i = 0; i < 50; i++) {
+            particles.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                r: Math.random() * 1.2 + 0.3,
+                vx: (Math.random() - 0.5) * 0.25,
+                vy: (Math.random() - 0.5) * 0.25,
+                color: COLORS[Math.floor(Math.random() * COLORS.length)],
+                alpha: Math.random() * 0.4 + 0.1,
             });
-            // open clicked (if was closed)
-            if (!isActive) {
-                this.classList.add('active');
-                const panel = this.nextElementSibling;
-                if (panel && panel.classList.contains('panel')) {
-                    panel.style.maxHeight = panel.scrollHeight + 'px';
-                }
-            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = p.color + p.alpha + ')';
+                ctx.fill();
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0) p.x = W;
+                if (p.x > W) p.x = 0;
+                if (p.y < 0) p.y = H;
+                if (p.y > H) p.y = 0;
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+    }
+
+    // ══════════════════════════════════════
+    // PAYMENT TABS
+    // ══════════════════════════════════════
+    const ptabs   = document.querySelectorAll('.ptab');
+    const ppanels = document.querySelectorAll('.pay-panel');
+
+    ptabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.target;
+
+            ptabs.forEach(t => t.classList.remove('active'));
+            ppanels.forEach(p => p.classList.remove('active'));
+
+            tab.classList.add('active');
+            const panel = document.getElementById(target);
+            if (panel) panel.classList.add('active');
         });
     });
 
-    // ── Copy buttons ──
+    // ══════════════════════════════════════
+    // COPY BUTTONS
+    // ══════════════════════════════════════
     document.querySelectorAll('.copy-btn').forEach(btn => {
         btn.addEventListener('click', function (e) {
             e.stopPropagation();
@@ -41,29 +91,52 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.innerHTML = orig;
                     this.classList.remove('copied');
                 }, 2000);
+            }).catch(() => {
+                // Fallback for browsers without clipboard API
+                const el = document.createElement('textarea');
+                el.value = target.innerText;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                const orig = this.innerHTML;
+                this.innerHTML = '<i class="fa-solid fa-check"></i> Tersalin!';
+                this.classList.add('copied');
+                setTimeout(() => { this.innerHTML = orig; this.classList.remove('copied'); }, 2000);
             });
         });
     });
 
-    // ── QRIS overlay ──
-    const overlay = document.getElementById('qris-overlay');
+    // ══════════════════════════════════════
+    // QRIS OVERLAY
+    // ══════════════════════════════════════
+    const overlay   = document.getElementById('qris-overlay');
     const expandBtn = document.getElementById('qris-expand-btn');
 
     if (expandBtn && overlay) {
         expandBtn.addEventListener('click', function (e) {
             e.stopPropagation();
-            overlay.style.display = 'flex';
+            overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         });
         overlay.addEventListener('click', function () {
-            overlay.style.display = 'none';
+            overlay.classList.remove('open');
             document.body.style.overflow = '';
         });
     }
 
-    // ── Staggered animation on accordion items ──
-    accordions.forEach((btn, i) => {
-        btn.style.animationDelay = (0.08 + i * 0.06) + 's';
+    // ══════════════════════════════════════
+    // STAGGERED ENTRANCE ANIMATION
+    // ══════════════════════════════════════
+    const animated = document.querySelectorAll('.svc-card, .product-item');
+    animated.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        el.style.transition = `opacity 0.4s ease ${i * 0.04}s, transform 0.4s ease ${i * 0.04}s`;
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 300 + i * 40);
     });
 
 });

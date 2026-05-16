@@ -65,13 +65,18 @@ document.addEventListener('DOMContentLoaded', function () {
     ptabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const target = tab.dataset.target;
+            const isActive = tab.classList.contains('active');
 
+            // Close all
             ptabs.forEach(t => t.classList.remove('active'));
             ppanels.forEach(p => p.classList.remove('active'));
 
-            tab.classList.add('active');
-            const panel = document.getElementById(target);
-            if (panel) panel.classList.add('active');
+            // If it wasn't active, open it; if it was active, leave it closed (toggle)
+            if (!isActive) {
+                tab.classList.add('active');
+                const panel = document.getElementById(target);
+                if (panel) panel.classList.add('active');
+            }
         });
     });
 

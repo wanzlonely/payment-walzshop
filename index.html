@@ -7,198 +7,275 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="loader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- LOADER -->
 <div id="loader-wrapper">
-    <div class="loader-brand">WALZSHOP</div>
-    <div class="loader"></div>
-    <div class="loader-dots">
-        <span></span><span></span><span></span>
-    </div>
+    <div class="loader-logo">W</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
 </div>
+
+<canvas id="bg-canvas"></canvas>
 
 <div class="container">
 
     <!-- HEADER -->
     <header class="header">
-        <div class="logo-wrap">
-            <div class="logo-glow"></div>
-            <img src="https://files.catbox.moe/fp5fkl.png" alt="Logo WALZSHOP" class="logo">
+        <div class="header-inner">
+            <div class="logo-wrap">
+                <div class="logo-ring-outer"></div>
+                <div class="logo-ring-inner"></div>
+                <img src="https://files.catbox.moe/fp5fkl.png" alt="Logo WALZSHOP" class="logo">
+            </div>
+            <div class="header-text">
+                <div class="header-eyebrow">
+                    <span class="live-dot"></span>
+                    <span>ONLINE NOW</span>
+                </div>
+                <h1>WALZSHOP</h1>
+                <p class="header-sub">Layanan Digital Terpercaya</p>
+            </div>
         </div>
-        <h1>WALZSHOP</h1>
-        <p class="header-tagline">Layanan digital cepat, aman &amp; terpercaya</p>
-        <div class="header-badges">
-            <span class="hbadge live">Online 24/7</span>
-            <span class="hbadge trust"><i class="fa-solid fa-shield-halved" style="font-size:.65rem"></i> Terpercaya</span>
+
+        <!-- Trust stats -->
+        <div class="trust-bar">
+            <div class="trust-item">
+                <i class="fa-solid fa-bolt trust-icon cyan"></i>
+                <div>
+                    <span class="trust-num">500+</span>
+                    <span class="trust-label">Transaksi</span>
+                </div>
+            </div>
+            <div class="trust-sep"></div>
+            <div class="trust-item">
+                <i class="fa-solid fa-headset trust-icon purple"></i>
+                <div>
+                    <span class="trust-num">24/7</span>
+                    <span class="trust-label">Support</span>
+                </div>
+            </div>
+            <div class="trust-sep"></div>
+            <div class="trust-item">
+                <i class="fa-solid fa-shield-halved trust-icon green"></i>
+                <div>
+                    <span class="trust-num">100%</span>
+                    <span class="trust-label">Aman</span>
+                </div>
+            </div>
+            <div class="trust-sep"></div>
+            <div class="trust-item">
+                <i class="fa-solid fa-paper-plane trust-icon amber"></i>
+                <div>
+                    <span class="trust-num">Cepat</span>
+                    <span class="trust-label">Pengiriman</span>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
 
         <!-- PAYMENT SECTION -->
-        <p class="section-label">💳 Metode Pembayaran</p>
+        <div class="section-title">
+            <div class="section-line"></div>
+            <span><i class="fa-solid fa-credit-card"></i> Metode Pembayaran</span>
+            <div class="section-line"></div>
+        </div>
 
-        <!-- QRIS -->
-        <button class="accordion" style="animation-delay:.08s">
-            <span class="acc-icon qris"><i class="fa-solid fa-qrcode"></i></span>
-            <span class="acc-label">PAYMENT QRIS</span>
-            <i class="fa-solid fa-chevron-down acc-arrow"></i>
-        </button>
-        <div class="panel">
-            <div class="panel-inner payment-card">
-                <span class="pay-label">Scan &amp; Pay</span>
-                <div class="qris-frame">
-                    <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP" class="qris-image">
+        <div class="payment-tabs">
+            <button class="ptab active" data-target="pay-qris">
+                <span class="ptab-icon qris-bg"><i class="fa-solid fa-qrcode"></i></span>
+                <span class="ptab-label">QRIS</span>
+            </button>
+            <button class="ptab" data-target="pay-dana">
+                <span class="ptab-icon dana-bg"><i class="fa-solid fa-wallet"></i></span>
+                <span class="ptab-label">DANA</span>
+            </button>
+            <button class="ptab" data-target="pay-gopay">
+                <span class="ptab-icon gopay-bg"><i class="fa-solid fa-wallet"></i></span>
+                <span class="ptab-label">GoPay</span>
+            </button>
+        </div>
+
+        <div class="payment-panels">
+            <!-- QRIS -->
+            <div class="pay-panel active" id="pay-qris">
+                <div class="pay-panel-inner">
+                    <p class="pay-hint"><i class="fa-solid fa-circle-info"></i> Scan kode QR di bawah untuk membayar</p>
+                    <div class="qris-wrap">
+                        <img src="https://files.catbox.moe/pa0iwo.png" alt="QRIS WALZSHOP" class="qris-img">
+                        <div class="qris-corners">
+                            <span class="corner tl"></span>
+                            <span class="corner tr"></span>
+                            <span class="corner bl"></span>
+                            <span class="corner br"></span>
+                        </div>
+                    </div>
+                    <button class="action-btn glow-btn" id="qris-expand-btn">
+                        <i class="fa-solid fa-expand"></i> Perbesar QR
+                    </button>
                 </div>
-                <br>
-                <button class="action-btn" id="qris-expand-btn">
-                    <i class="fa-solid fa-expand"></i> Perbesar QRIS
-                </button>
             </div>
-        </div>
 
-        <!-- DANA -->
-        <button class="accordion" style="animation-delay:.14s">
-            <span class="acc-icon dana"><i class="fa-solid fa-wallet"></i></span>
-            <span class="acc-label">PAYMENT DANA</span>
-            <i class="fa-solid fa-chevron-down acc-arrow"></i>
-        </button>
-        <div class="panel">
-            <div class="panel-inner payment-card">
-                <span class="pay-label">Transfer DANA</span>
-                <p class="pay-owner">Atas Nama</p>
-                <p class="pay-name">WALZEXPLOIT</p>
-                <div class="pay-divider"></div>
-                <p class="pay-num-label">Nomor DANA</p>
-                <p class="pay-number" id="dana-number">082298902274</p>
-                <button class="action-btn copy-btn" data-target="dana-number">
-                    <i class="fa-solid fa-copy"></i> Copy Nomor
-                </button>
-            </div>
-        </div>
-
-        <!-- GOPAY -->
-        <button class="accordion" style="animation-delay:.20s">
-            <span class="acc-icon gopay"><i class="fa-solid fa-wallet"></i></span>
-            <span class="acc-label">PAYMENT GOPAY</span>
-            <i class="fa-solid fa-chevron-down acc-arrow"></i>
-        </button>
-        <div class="panel">
-            <div class="panel-inner payment-card">
-                <span class="pay-label">Transfer GoPay</span>
-                <p class="pay-owner">Atas Nama</p>
-                <p class="pay-name">TI** SUT***</p>
-                <div class="pay-divider"></div>
-                <p class="pay-num-label">Nomor GoPay</p>
-                <p class="pay-number" id="gopay-number">082298902274</p>
-                <button class="action-btn copy-btn" data-target="gopay-number">
-                    <i class="fa-solid fa-copy"></i> Copy Nomor
-                </button>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- SERVICES -->
-        <p class="section-label" style="animation-delay:.26s">⚡ Layanan &amp; Produk</p>
-
-        <!-- LAYANAN -->
-        <button class="accordion" style="animation-delay:.30s">
-            <span class="acc-icon layanan"><i class="fa-solid fa-server"></i></span>
-            <span class="acc-label">LAYANAN WALZ</span>
-            <i class="fa-solid fa-chevron-down acc-arrow"></i>
-        </button>
-        <div class="panel">
-            <div class="panel-inner info-card">
-                <p class="info-title">Kami Melayani</p>
-                <ul class="service-list">
-                    <li>
-                        <span class="svc-icon" style="background:linear-gradient(145deg,#a855f7,#ec4899)">
-                            <i class="fa-solid fa-palette" style="color:#fff"></i>
-                        </span>
-                        Logo Bebas Request
-                    </li>
-                    <li>
-                        <span class="svc-icon" style="background:linear-gradient(145deg,#3b82f6,#06b6d4)">
-                            <i class="fa-solid fa-robot" style="color:#fff"></i>
-                        </span>
-                        Panel Run Bot 1GB – Unlimited
-                    </li>
-                    <li>
-                        <span class="svc-icon" style="background:linear-gradient(145deg,#f97316,#ef4444)">
-                            <i class="fa-solid fa-crown" style="color:#fff"></i>
-                        </span>
-                        Reseller Panel &amp; Admin Panel
-                    </li>
-                    <li>
-                        <span class="svc-icon" style="background:linear-gradient(145deg,#22c55e,#14b8a6)">
-                            <i class="fa-solid fa-code" style="color:#fff"></i>
-                        </span>
-                        Jasa Pembuatan Website
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- PRODUK -->
-        <button class="accordion" style="animation-delay:.36s">
-            <span class="acc-icon produk"><i class="fa-solid fa-box-archive"></i></span>
-            <span class="acc-label">PRODUK PANEL</span>
-            <i class="fa-solid fa-chevron-down acc-arrow"></i>
-        </button>
-        <div class="panel">
-            <div class="panel-inner info-card">
-                <p class="info-title">Panel Pterodactyl</p>
-                <div class="product-grid">
-                    <div class="product-item pi-1">
-                        <span class="prod-ram">RAM 1GB</span>
-                        <span class="prod-price">Rp1.000</span>
+            <!-- DANA -->
+            <div class="pay-panel" id="pay-dana">
+                <div class="pay-panel-inner">
+                    <div class="pay-brand dana">
+                        <i class="fa-solid fa-wallet"></i> DANA
                     </div>
-                    <div class="product-item pi-2">
-                        <span class="prod-ram">RAM 2GB</span>
-                        <span class="prod-price">Rp2.000</span>
+                    <div class="pay-fields">
+                        <div class="pay-field">
+                            <p class="field-label">Atas Nama</p>
+                            <p class="field-value">WALZEXPLOIT</p>
+                        </div>
+                        <div class="field-sep"></div>
+                        <div class="pay-field">
+                            <p class="field-label">Nomor DANA</p>
+                            <p class="field-value mono" id="dana-number">082298902274</p>
+                        </div>
                     </div>
-                    <div class="product-item pi-3">
-                        <span class="prod-ram">RAM 3GB</span>
-                        <span class="prod-price">Rp3.000</span>
-                    </div>
-                    <div class="product-item pi-4">
-                        <span class="prod-ram">RAM 4GB</span>
-                        <span class="prod-price">Rp4.000</span>
-                    </div>
-                    <div class="product-item pi-5">
-                        <span class="prod-ram">RAM 5GB</span>
-                        <span class="prod-price">Rp5.000</span>
-                    </div>
-                    <div class="product-item pi-6">
-                        <span class="prod-ram">RAM 6GB</span>
-                        <span class="prod-price">Rp6.000</span>
-                    </div>
-                    <div class="product-item pi-7">
-                        <span class="prod-ram">RAM 7GB</span>
-                        <span class="prod-price">Rp7.000</span>
-                    </div>
-                    <div class="product-item pi-8">
-                        <span class="prod-ram">RAM 8GB</span>
-                        <span class="prod-price">Rp8.000</span>
-                    </div>
-                    <div class="product-item pi-9">
-                        <span class="prod-ram">RAM 9GB</span>
-                        <span class="prod-price">Rp9.000</span>
-                    </div>
-                    <div class="product-item pi-10">
-                        <span class="prod-ram">
-                            RAM UNLI
-                            <span class="prod-tag">🔥 Best</span>
-                        </span>
-                        <span class="prod-price">Rp10.000</span>
-                    </div>
+                    <button class="action-btn copy-btn" data-target="dana-number">
+                        <i class="fa-solid fa-copy"></i> Copy Nomor
+                    </button>
                 </div>
+            </div>
+
+            <!-- GOPAY -->
+            <div class="pay-panel" id="pay-gopay">
+                <div class="pay-panel-inner">
+                    <div class="pay-brand gopay">
+                        <i class="fa-solid fa-wallet"></i> GoPay
+                    </div>
+                    <div class="pay-fields">
+                        <div class="pay-field">
+                            <p class="field-label">Atas Nama</p>
+                            <p class="field-value">TI** SUT***</p>
+                        </div>
+                        <div class="field-sep"></div>
+                        <div class="pay-field">
+                            <p class="field-label">Nomor GoPay</p>
+                            <p class="field-value mono" id="gopay-number">082298902274</p>
+                        </div>
+                    </div>
+                    <button class="action-btn copy-btn" data-target="gopay-number">
+                        <i class="fa-solid fa-copy"></i> Copy Nomor
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICES SECTION -->
+        <div class="section-title" style="margin-top:36px">
+            <div class="section-line"></div>
+            <span><i class="fa-solid fa-grid-2"></i> Layanan Kami</span>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="service-grid">
+            <div class="svc-card" style="--accent:#a855f7;--accent-alt:#ec4899">
+                <div class="svc-glow"></div>
+                <div class="svc-icon-wrap">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <h4>Logo Design</h4>
+                <p>Bebas request, custom sesuai keinginan kamu</p>
+                <div class="svc-tag">Design</div>
+            </div>
+            <div class="svc-card" style="--accent:#3b82f6;--accent-alt:#06b6d4">
+                <div class="svc-glow"></div>
+                <div class="svc-icon-wrap">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <h4>Panel Bot</h4>
+                <p>Run bot 1GB hingga Unlimited — stabil & cepat</p>
+                <div class="svc-tag">Hosting</div>
+            </div>
+            <div class="svc-card" style="--accent:#f97316;--accent-alt:#ef4444">
+                <div class="svc-glow"></div>
+                <div class="svc-icon-wrap">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <h4>Reseller Panel</h4>
+                <p>Panel Pterodactyl, reseller & admin tersedia</p>
+                <div class="svc-tag">Panel</div>
+            </div>
+            <div class="svc-card" style="--accent:#22c55e;--accent-alt:#14b8a6">
+                <div class="svc-glow"></div>
+                <div class="svc-icon-wrap">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h4>Jasa Website</h4>
+                <p>Landing page, toko online, portofolio & lebih</p>
+                <div class="svc-tag">Dev</div>
+            </div>
+        </div>
+
+        <!-- PRICING SECTION -->
+        <div class="section-title" style="margin-top:36px">
+            <div class="section-line"></div>
+            <span><i class="fa-solid fa-server"></i> Harga Panel</span>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="pricing-intro">
+            <div class="pricing-intro-icon"><i class="fa-brands fa-pterodactyl"></i></div>
+            <div>
+                <p class="pricing-intro-title">Panel Pterodactyl</p>
+                <p class="pricing-intro-sub">Pilih kapasitas RAM yang kamu butuhkan</p>
+            </div>
+            <div class="pricing-tag">Murah!</div>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-item" style="--c: #a78bfa">
+                <span class="prod-ram">1 GB</span>
+                <span class="prod-price">Rp1.000</span>
+            </div>
+            <div class="product-item" style="--c: #67e8f9">
+                <span class="prod-ram">2 GB</span>
+                <span class="prod-price">Rp2.000</span>
+            </div>
+            <div class="product-item" style="--c: #86efac">
+                <span class="prod-ram">3 GB</span>
+                <span class="prod-price">Rp3.000</span>
+            </div>
+            <div class="product-item" style="--c: #f9a8d4">
+                <span class="prod-ram">4 GB</span>
+                <span class="prod-price">Rp4.000</span>
+            </div>
+            <div class="product-item" style="--c: #fdba74">
+                <span class="prod-ram">5 GB</span>
+                <span class="prod-price">Rp5.000</span>
+            </div>
+            <div class="product-item" style="--c: #fde047">
+                <span class="prod-ram">6 GB</span>
+                <span class="prod-price">Rp6.000</span>
+            </div>
+            <div class="product-item" style="--c: #fca5a5">
+                <span class="prod-ram">7 GB</span>
+                <span class="prod-price">Rp7.000</span>
+            </div>
+            <div class="product-item" style="--c: #a5f3fc">
+                <span class="prod-ram">8 GB</span>
+                <span class="prod-price">Rp8.000</span>
+            </div>
+            <div class="product-item" style="--c: #d8b4fe">
+                <span class="prod-ram">9 GB</span>
+                <span class="prod-price">Rp9.000</span>
+            </div>
+        </div>
+
+        <!-- UNLIMITED SPECIAL CARD -->
+        <div class="unlimited-card">
+            <div class="unlimited-glow"></div>
+            <div class="unlimited-badge"><i class="fa-solid fa-fire"></i> BEST VALUE</div>
+            <div class="unlimited-left">
+                <span class="unlimited-ram">UNLIMITED</span>
+                <span class="unlimited-sub">RAM Tak Terbatas</span>
+            </div>
+            <div class="unlimited-right">
+                <span class="unlimited-price">Rp10.000</span>
+                <span class="unlimited-period">/bulan</span>
             </div>
         </div>
 
@@ -206,14 +283,19 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-glow"></div>
-        <h3>Hubungi Admin</h3>
-        <p>Ada pertanyaan atau kendala?<br>Kami siap bantu kamu kapan saja 🙌</p>
+        <div class="footer-top">
+            <img src="https://files.catbox.moe/fp5fkl.png" alt="Logo" class="footer-logo">
+            <div>
+                <h3 class="footer-title">WALZSHOP</h3>
+                <p class="footer-tagline">Layanan Digital Cepat & Terpercaya</p>
+            </div>
+        </div>
+        <p class="footer-desc">Punya pertanyaan atau ingin order? Hubungi admin kami sekarang — kami siap melayani 24 jam penuh.</p>
         <div class="contact-buttons">
-            <a href="https://wa.me/6282298902274" target="_blank" class="contact-btn whatsapp">
+            <a href="https://wa.me/6282298902274" target="_blank" class="contact-btn wa">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="https://t.me/walzdevnew" target="_blank" class="contact-btn telegram">
+            <a href="https://t.me/walzdevnew" target="_blank" class="contact-btn tg">
                 <i class="fa-brands fa-telegram"></i> Telegram
             </a>
         </div>
@@ -225,13 +307,16 @@
 
 <!-- Floating Testimoni -->
 <a href="testimoni.html" class="floating-btn">
-    <i class="fa-solid fa-star"></i> Testimoni
+    <i class="fa-solid fa-star"></i>
+    <span>Testimoni</span>
 </a>
 
 <!-- QRIS Overlay -->
-<div id="qris-overlay" style="display:none; position:fixed; inset:0; background:rgba(4,4,20,0.92); z-index:10000; align-items:center; justify-content:center; flex-direction:column; gap:16px; backdrop-filter:blur(12px);">
-    <img src="https://files.catbox.moe/pa0iwo.png" style="width:88%; max-width:360px; border-radius:22px; box-shadow:0 0 80px rgba(168,85,247,0.45), 0 24px 60px rgba(0,0,0,0.6); border:2px solid rgba(255,255,255,0.1);">
-    <p style="color:rgba(255,255,255,0.38); font-size:0.78rem; font-family:'Plus Jakarta Sans',sans-serif; font-weight:500;">Ketuk di mana saja untuk menutup</p>
+<div id="qris-overlay">
+    <div class="overlay-content">
+        <img src="https://files.catbox.moe/pa0iwo.png" class="overlay-qris">
+        <p class="overlay-hint"><i class="fa-solid fa-hand-pointer"></i> Ketuk di mana saja untuk menutup</p>
+    </div>
 </div>
 
 <script src="script.js"></script>

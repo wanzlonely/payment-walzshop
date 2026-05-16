@@ -298,15 +298,17 @@ body::after {
     gap: 8px;
     margin-bottom: 0;
     animation: slideUp 0.5s ease both 0.05s;
+    flex-wrap: nowrap;
 }
 
 .ptab {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 12px 8px 10px;
+    gap: 6px;
+    padding: 10px 4px 8px;
     background: var(--surf);
     border: 1px solid var(--border);
     border-bottom: none;
@@ -356,6 +358,7 @@ body::after {
 .qris-bg  { background: linear-gradient(135deg, #f97316, #ef4444); }
 .dana-bg  { background: linear-gradient(135deg, #3b82f6, #06b6d4); }
 .gopay-bg { background: linear-gradient(135deg, #22c55e, #14b8a6); }
+.shopee-bg { background: linear-gradient(135deg, #ee4d2d, #ff7337); }
 
 .ptab-label {
     font-size: 0.72rem;
@@ -405,7 +408,10 @@ body::after {
 /* QRIS */
 .qris-wrap {
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     margin: 0 auto 18px;
 }
 
@@ -427,7 +433,7 @@ body::after {
 }
 
 /* Corner decorations */
-.qris-corners { position: absolute; inset: -8px; z-index: 2; pointer-events: none; }
+.qris-corners { position: absolute; inset: -8px; z-index: 2; pointer-events: none; width: calc(68% + 16px); max-width: 236px; left: 50%; transform: translateX(-50%); }
 .corner {
     position: absolute;
     width: 16px; height: 16px;
@@ -455,6 +461,7 @@ body::after {
 
 .pay-brand.dana  { background: rgba(59,130,246,0.12); color: #93c5fd; border: 1px solid rgba(59,130,246,0.2); }
 .pay-brand.gopay { background: rgba(34,197,94,0.12);  color: #86efac; border: 1px solid rgba(34,197,94,0.2); }
+.pay-brand.shopee { background: rgba(238,77,45,0.12); color: #ff9f87; border: 1px solid rgba(238,77,45,0.2); }
 
 /* Pay fields */
 .pay-fields {

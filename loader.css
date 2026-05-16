@@ -1,14 +1,14 @@
 #loader-wrapper {
     position: fixed;
     inset: 0;
-    background: #080818;
+    background: #07080e;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
     z-index: 99999;
-    transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), visibility 0.7s;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 #loader-wrapper.hidden {
@@ -17,73 +17,42 @@
     pointer-events: none;
 }
 
-.loader-brand {
-    font-family: 'Syne', 'Segoe UI', sans-serif;
-    font-size: 1.7rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
+.loader-logo {
+    font-family: 'Bebas Neue', monospace;
+    font-size: 2.8rem;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, #00d4ff, #8b5cf6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: fadeSlideUp 0.6s ease both;
+    animation: logoPulse 1.2s ease-in-out infinite alternate;
+    user-select: none;
 }
 
-.loader {
-    position: relative;
-    width: 52px;
-    height: 52px;
-    animation: fadeSlideUp 0.6s ease 0.1s both;
+@keyframes logoPulse {
+    0%   { opacity: 0.5; transform: scale(0.96); }
+    100% { opacity: 1;   transform: scale(1.02); }
 }
 
-.loader::before,
-.loader::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 3.5px solid transparent;
+.loader-bar {
+    width: 120px;
+    height: 2px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 99px;
+    overflow: hidden;
 }
 
-.loader::before {
-    border-top-color: #a855f7;
-    border-right-color: #ec4899;
-    animation: spinA 0.8s linear infinite;
-    filter: drop-shadow(0 0 8px rgba(168,85,247,0.6));
+.loader-fill {
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(90deg, #00d4ff, #8b5cf6, #00d4ff);
+    background-size: 200%;
+    border-radius: 99px;
+    animation: barSlide 1s ease-in-out infinite;
 }
 
-.loader::after {
-    inset: 8px;
-    border-bottom-color: #f97316;
-    border-left-color: #3b82f6;
-    animation: spinA 0.55s linear infinite reverse;
-}
-
-@keyframes spinA { to { transform: rotate(360deg); } }
-
-.loader-dots {
-    display: flex;
-    gap: 7px;
-    animation: fadeSlideUp 0.6s ease 0.25s both;
-}
-
-.loader-dots span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    animation: dotBounce 1.3s ease-in-out infinite;
-}
-
-.loader-dots span:nth-child(2) { animation-delay: 0.18s; }
-.loader-dots span:nth-child(3) { animation-delay: 0.36s; }
-
-@keyframes dotBounce {
-    0%, 70%, 100% { transform: scale(1); background: rgba(255,255,255,0.2); }
-    35% { transform: scale(1.5); background: #a855f7; }
-}
-
-@keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
+@keyframes barSlide {
+    0%   { background-position: 0%   center; transform: translateX(-100%); }
+    50%  { background-position: 100% center; }
+    100% { background-position: 0%   center; transform: translateX(350%); }
 }

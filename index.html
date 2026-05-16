@@ -95,6 +95,10 @@
                 <span class="ptab-icon gopay-bg"><i class="fa-solid fa-wallet"></i></span>
                 <span class="ptab-label">GoPay</span>
             </button>
+            <button class="ptab" data-target="pay-shopee">
+                <span class="ptab-icon shopee-bg"><i class="fa-solid fa-bag-shopping"></i></span>
+                <span class="ptab-label">ShopeePay</span>
+            </button>
         </div>
 
         <div class="payment-panels">
@@ -162,6 +166,29 @@
                     </button>
                 </div>
             </div>
+
+            <!-- SHOPEE PAY -->
+            <div class="pay-panel" id="pay-shopee">
+                <div class="pay-panel-inner">
+                    <div class="pay-brand shopee">
+                        <i class="fa-solid fa-bag-shopping"></i> ShopeePay
+                    </div>
+                    <div class="pay-fields">
+                        <div class="pay-field">
+                            <p class="field-label">Atas Nama</p>
+                            <p class="field-value">WALZEXPLOIT</p>
+                        </div>
+                        <div class="field-sep"></div>
+                        <div class="pay-field">
+                            <p class="field-label">Nomor ShopeePay</p>
+                            <p class="field-value mono" id="shopee-number">082298902274</p>
+                        </div>
+                    </div>
+                    <button class="action-btn copy-btn" data-target="shopee-number">
+                        <i class="fa-solid fa-copy"></i> Copy Nomor
+                    </button>
+                </div>
+            </div>
         </div>
 
         <!-- SERVICES SECTION -->
@@ -193,7 +220,7 @@
             <div class="svc-card" style="--accent:#f97316;--accent-alt:#ef4444">
                 <div class="svc-glow"></div>
                 <div class="svc-icon-wrap">
-                    <i class="fa-solid fa-crown"></i>
+                    <i class="fa-brands fa-pterodactyl"></i>
                 </div>
                 <h4>Reseller Panel</h4>
                 <p>Panel Pterodactyl, reseller & admin tersedia</p>
